@@ -895,8 +895,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Lakshaya s",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408568/members/pddhf1flce1gjqsdfgxy.jpg",
-      "imagePublicId": "members/pddhf1flce1gjqsdfgxy",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779815946/members/ednqcilploa2sqjpv8bv.jpg",
+      "imagePublicId": "members/ednqcilploa2sqjpv8bv",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -923,28 +923,12 @@ const About: React.FC<AboutProps> = () => {
       "__v": 0
     },
     {
-      "_id": { "$oid": "6967c61d06cedad2e68d635a" },
-      "name": "D. Lenita mary",
-      "designation": "Volunteer Unit",
-      "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408606/members/hxyg0smfowyi19lc5hxh.jpg",
-      "imagePublicId": "members/hxyg0smfowyi19lc5hxh",
-      "social": {
-        "linkedin": "",
-        "instagram": "",
-        "facebook": ""
-      },
-      "createdAt": { "$date": "2026-01-14T16:36:45.156Z" },
-      "updatedAt": { "$date": "2026-01-14T16:36:45.156Z" },
-      "__v": 0
-    },
-    {
       "_id": { "$oid": "6967c62e06cedad2e68d635c" },
       "name": "Harini.c",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408623/members/dii5heuuvrxxbq5tlue3.jpg",
-      "imagePublicId": "members/dii5heuuvrxxbq5tlue3",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779816164/members/ksyzfeja5pmj0xlkgzuf.jpg",
+      "imagePublicId": "members/ksyzfeja5pmj0xlkgzuf",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1035,12 +1019,44 @@ const About: React.FC<AboutProps> = () => {
       "__v": 0
     },
     {
+      "_id": { "$oid": "6967c6dd06cedad2e68d6366" },
+      "name": "K Likith Syam",
+      "designation": "Volunteer Unit",
+      "batch": "2025–2026",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779816520/members/dytdebylcknwezytxloq.jpg",
+      "imagePublicId": "members/dytdebylcknwezytxloq",
+      "social": {
+        "linkedin": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "createdAt": { "$date": "2026-01-14T16:39:57.199Z" },
+      "updatedAt": { "$date": "2026-01-14T16:39:57.199Z" },
+      "__v": 0
+    },
+    {
+      "_id": { "$oid": "6967c6dd06cedad2e68d6366" },
+      "name": "Bhuvana Rajaram",
+      "designation": "Volunteer Unit",
+      "batch": "2025–2026",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779816691/members/ipqb1jnrydpozxfvznmv.jpg",
+      "imagePublicId": "members/ipqb1jnrydpozxfvznmv",
+      "social": {
+        "linkedin": "",
+        "instagram": "",
+        "facebook": ""
+      },
+      "createdAt": { "$date": "2026-01-14T16:39:57.199Z" },
+      "updatedAt": { "$date": "2026-01-14T16:39:57.199Z" },
+      "__v": 0
+    },
+    {
       "_id": { "$oid": "6967c79106cedad2e68d6368" },
       "name": "NUVVURU HARTHIK REDDY",
       "designation": "Media Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408978/members/ls7qqvnlt0bvxhjlgiyf.jpg",
-      "imagePublicId": "members/ls7qqvnlt0bvxhjlgiyf",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779816059/members/vwdime3l4abenenz3mkh.jpg",
+      "imagePublicId": "members/vwdime3l4abenenz3mkh",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1071,8 +1087,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Mohammed Sayed",
       "designation": "Media Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768409042/members/mtokr8zxwmrhuvkfbalg.jpg",
-      "imagePublicId": "members/mtokr8zxwmrhuvkfbalg",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779815698/members/f726evfjuwwf2ghnktx4.jpg",
+      "imagePublicId": "members/f726evfjuwwf2ghnktx4",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1151,8 +1167,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Dharsan L",
       "designation": "Media Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768410821/members/kjtgjnrhxvhyggishy4s.jpg",
-      "imagePublicId": "members/kjtgjnrhxvhyggishy4s",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779816276/members/qe5lss1744limyhffrhe.jpg",
+      "imagePublicId": "members/qe5lss1744limyhffrhe",
       "social": {
         "linkedin": "",
         "instagram": "",
