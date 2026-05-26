@@ -278,7 +278,14 @@ const Blogs: React.FC = () => {
 
                                 <h3 className="post-title">{post.title}</h3>
 
-                                <p className="post-excerpt">{post.content}</p>
+                                <p className="post-excerpt">
+                                  {post.content
+                                    .replace(/<[^>]*>/g, '')
+                                    .replace(/&[a-z]+;/gi, ' ')
+                                    .trim()
+                                    .slice(0, 160)
+                                    .trimEnd()}{post.content.replace(/<[^>]*>/g, '').trim().length > 160 ? '…' : ''}
+                                </p>
 
                                 {post.thumbnail && (
                                     <div className="blog-image">

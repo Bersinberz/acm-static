@@ -37,7 +37,7 @@ const CopyrightFooter: React.FC = () => {
 
       <div className='cpoy-cont'>
         <div className='Copyrights'>
-          <h2>© 2025 SIST ACM SIGAI STUDENT CHAPTER</h2>
+          <h2>© 2026 SIST ACM SIGAI STUDENT CHAPTER</h2>
           <p>
             Website developed by ADITYA SAI TEJA B |
             Designed by MANISRI VENKATESH |

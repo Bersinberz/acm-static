@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion as m } from "framer-motion";
 import Tilt from 'react-vanilla-tilt';
 import { useLocation } from 'react-router-dom';
@@ -34,6 +34,124 @@ interface FrontendMember {
 }
 
 interface AboutProps { }
+
+// --- ISOLATED DROPDOWN COMPONENT ---
+// Kept outside About so its open/close state never triggers a re-render of the parent
+interface UnitDropdownProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: { value: string; label: string }[];
+}
+
+const UnitDropdown: React.FC<UnitDropdownProps> = ({ value, onChange, options }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  return (
+    <div className="custom-dropdown" ref={ref}>
+      <div
+        className={`custom-dropdown__trigger${open ? ' open' : ''}`}
+        onClick={() => setOpen(o => !o)}
+        role="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span>{options.find(o => o.value === value)?.label}</span>
+        <span className={`custom-dropdown__chevron${open ? ' open' : ''}`}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </span>
+      </div>
+      <m.div
+        className="custom-dropdown__menu"
+        initial={false}
+        animate={open ? { opacity: 1, scaleY: 1, y: 0 } : { opacity: 0, scaleY: 0.85, y: -8 }}
+        transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+        style={{ originY: 0, pointerEvents: open ? 'auto' : 'none' }}
+        role="listbox"
+      >
+        {options.map((opt, i) => (
+          <m.div
+            key={opt.value}
+            className={`custom-dropdown__option${value === opt.value ? ' selected' : ''}`}
+            role="option"
+            aria-selected={value === opt.value}
+            initial={{ opacity: 0, x: -8 }}
+            animate={open ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+            transition={{ delay: open ? i * 0.06 : 0, duration: 0.18 }}
+            onClick={() => { onChange(opt.value); setOpen(false); }}
+          >
+            {opt.label}
+          </m.div>
+        ))}
+      </m.div>
+    </div>
+  );
+};
+
+// --- REUSABLE CARD COMPONENT ---
+const MemberCard = ({ member, isLarge = false }: { member: FrontendMember; isLarge?: boolean }) => {
+  return (
+    <m.div
+      variants={fadeIn("up", 0.15)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.3 }}
+      style={{ willChange: "opacity, transform" }}
+    >
+      <Tilt
+        id="tilt-card"
+        options={{ scale: 1.05, speed: 1000, max: 15 }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <div className={`member-card ${isLarge ? "large" : ''}`}>
+          <div className="card-img-wrapper">
+            <img
+              src={member.img}
+              alt={member.name}
+              onError={(e) => {
+                e.currentTarget.src = "https://via.placeholder.com/280x380?text=No+Image";
+              }}
+            />
+          </div>
+
+          <div className="card-content">
+            <div className="text-box">
+              <h3>{member.name}</h3>
+              <span>{member.designation}</span>
+            </div>
+
+            <div className="social-icons">
+              {member.social?.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.link}
+                  className={`social-icon ${social.type}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {social.type === "instagram" && <FaInstagram />}
+                  {social.type === "linkedin" && <FaLinkedin />}
+                  {social.type === "twitter" && <FaTwitter />}
+                  {social.type === "facebook" && <FaFacebook />}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Tilt>
+    </m.div>
+  );
+};
 
 const About: React.FC<AboutProps> = () => {
   const [selectedUnit, setSelectedUnit] = useState<string>('volunteers');
@@ -1019,7 +1137,7 @@ const About: React.FC<AboutProps> = () => {
       "__v": 0
     },
     {
-      "_id": { "$oid": "6967c6dd06cedad2e68d6366" },
+      "_id": { "$oid": "6a15d849e662a9d153dd6f69" },
       "name": "K Likith Syam",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
@@ -1035,7 +1153,7 @@ const About: React.FC<AboutProps> = () => {
       "__v": 0
     },
     {
-      "_id": { "$oid": "6967c6dd06cedad2e68d6366" },
+      "_id": { "$oid": "6a15d8f3e662a9d153dd6f6b" },
       "name": "Bhuvana Rajaram",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
@@ -1619,9 +1737,6 @@ const About: React.FC<AboutProps> = () => {
     }
   }, [location]);
 
-  const handleDropdownChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedUnit(event.target.value);
-  };
 
   // --- HELPER FUNCTIONS ---
   const convertSocialToArray = (
@@ -1731,61 +1846,6 @@ const About: React.FC<AboutProps> = () => {
     return getMembersByUnit(selectedUnit);
   };
 
-  // --- REUSABLE CARD COMPONENT ---
-  const MemberCard = ({ member, isLarge = false }: { member: FrontendMember; isLarge?: boolean }) => {
-    return (
-      <m.div
-        variants={fadeIn("up", 0.15)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
-        style={{ willChange: "opacity, transform" }}
-      >
-        <Tilt
-          id="tilt-card"
-          options={{ scale: 1.05, speed: 1000, max: 15 }}
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          <div className={`member-card ${isLarge ? "large" : ''}`}>
-            <div className="card-img-wrapper">
-              <img
-                src={member.img}
-                alt={member.name}
-                onError={(e) => {
-                  e.currentTarget.src = "https://via.placeholder.com/280x380?text=No+Image";
-                }}
-              />
-            </div>
-
-            <div className="card-content">
-              <div className="text-box">
-                <h3>{member.name}</h3>
-                <span>{member.designation}</span>
-              </div>
-
-              <div className="social-icons">
-                {member.social?.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.link}
-                    className={`social-icon ${social.type}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.type === "instagram" && <FaInstagram />}
-                    {social.type === "linkedin" && <FaLinkedin />}
-                    {social.type === "twitter" && <FaTwitter />}
-                    {social.type === "facebook" && <FaFacebook />}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Tilt>
-      </m.div>
-    );
-  };
-
   return (
     <>
       <style>{`
@@ -1890,13 +1950,80 @@ const About: React.FC<AboutProps> = () => {
           font-size: 0.8em; font-weight: bold; display: block; margin-top: 5px; opacity: 0.8; 
         }
 
-        /* --- DROPDOWN --- */
-        .dropdown-container { display: flex; justify-content: center; margin-bottom: 30px; align-items: center; gap: 10px; }
-        .dropdown-container select {
-          padding: 10px 20px; border: 2px solid lightblue; border-radius: 5px;
-          background: rgba(0,0,0,0.5); color: #fff; cursor: pointer; outline: none;
+        /* --- CUSTOM ANIMATED DROPDOWN --- */
+        .dropdown-container { display: flex; justify-content: center; margin-bottom: 30px; align-items: center; gap: 14px; }
+
+        .custom-dropdown { position: relative; width: 220px; user-select: none; }
+
+        .custom-dropdown__trigger {
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 12px 20px;
+          background: rgba(0, 195, 255, 0.07);
+          border: 1.5px solid rgba(0, 195, 255, 0.45);
+          border-radius: 10px;
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          cursor: pointer;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          box-shadow: 0 0 18px rgba(0, 195, 255, 0.12), inset 0 0 8px rgba(0, 195, 255, 0.04);
+          transition: border-color 0.25s, box-shadow 0.25s;
         }
-        .dropdown-container select option { background: #000; color: #fff; }
+        .custom-dropdown__trigger:hover {
+          border-color: #00c3ff;
+          box-shadow: 0 0 28px rgba(0, 195, 255, 0.28), inset 0 0 12px rgba(0, 195, 255, 0.08);
+        }
+        .custom-dropdown__trigger.open {
+          border-color: #00c3ff;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          box-shadow: 0 0 28px rgba(0, 195, 255, 0.28);
+        }
+
+        .custom-dropdown__chevron {
+          display: flex; align-items: center; justify-content: center;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          color: #00c3ff;
+        }
+        .custom-dropdown__chevron.open { transform: rotate(180deg); }
+
+        .custom-dropdown__menu {
+          position: absolute; top: 100%; left: 0; right: 0;
+          background: rgba(5, 10, 30, 0.92);
+          border: 1.5px solid #00c3ff;
+          border-top: none;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          overflow: hidden;
+          z-index: 100;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          box-shadow: 0 12px 40px rgba(0, 195, 255, 0.18);
+        }
+
+        .custom-dropdown__option {
+          padding: 12px 20px;
+          color: rgba(255,255,255,0.8);
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.4px;
+          cursor: pointer;
+          transition: background 0.2s, color 0.2s, padding-left 0.2s;
+          border-bottom: 1px solid rgba(0, 195, 255, 0.08);
+        }
+        .custom-dropdown__option:last-child { border-bottom: none; }
+        .custom-dropdown__option:hover {
+          background: rgba(0, 195, 255, 0.12);
+          color: #fff;
+          padding-left: 26px;
+        }
+        .custom-dropdown__option.selected {
+          color: #00c3ff;
+          font-weight: 700;
+          background: rgba(0, 195, 255, 0.08);
+        }
 
         /* --- GRID SYSTEM --- */
         .grid-container {
@@ -1999,7 +2126,7 @@ const About: React.FC<AboutProps> = () => {
           variants={fadeIn("up", 0)}
           initial="hidden"
           animate="show"
-          viewport={{ once: true, amount: 0.7 }}
+          viewport={{ once: false, amount: 0.7 }}
         >
           EXPLORE <span className="title-highlight">ACM SIGAI!!</span>
         </m.h1>
@@ -2098,14 +2225,18 @@ const About: React.FC<AboutProps> = () => {
         </div>
 
         <div className="dropdown-container">
-          <label htmlFor="unit-select" style={{ fontWeight: 'bold', color: 'white' }}>Select Unit: </label>
-          <select id="unit-select" onChange={handleDropdownChange1} value={selectedUnit}>
-            <option value="volunteers">Volunteers Unit</option>
-            <option value="media">Media Unit</option>
-          </select>
+          <label style={{ fontWeight: 'bold', color: 'white' }}>Select Unit:</label>
+          <UnitDropdown
+            value={selectedUnit}
+            onChange={setSelectedUnit}
+            options={[
+              { value: 'volunteers', label: 'Volunteers Unit' },
+              { value: 'media', label: 'Media Unit' },
+            ]}
+          />
         </div>
 
-        <div className='grid-container'>
+        <div key={selectedUnit} className='grid-container'>
           {getCardsData().length > 0 ? (
             getCardsData().map((member) => (
               <MemberCard key={member.id} member={member} />

@@ -126,6 +126,19 @@ const Navbar = () => {
           text-decoration: none;
         }
 
+        nav ul li a.active-link {
+          color: #000;
+        }
+
+        nav ul li a.active-link::after {
+          width: 80%;
+        }
+
+        .button-fest.active-link {
+          background: #1a1a1a;
+          box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.35);
+        }
+
         /* --- 'Events' Button Styles --- */
         .button-fest {
           display: inline-flex;
@@ -273,17 +286,17 @@ const Navbar = () => {
         </div>
 
         <ul className={menuOpen ? 'menu open' : 'menu'}>
-          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-          <li><Link to="/about" onClick={closeMenu}>About Us</Link></li>
-          <li><Link to="/membership" onClick={closeMenu}>Membership</Link></li>
-          <li><Link to="/archives" onClick={closeMenu}>Archives</Link></li>
-          <li><Link to="/blogs" onClick={closeMenu}>Blogs</Link></li>
-          <li><Link to="/our-roots" onClick={closeMenu}>Our Roots</Link></li>
-          <li><Link to="/join-us" onClick={closeMenu}>WANNA JOIN US?</Link></li>
+          <li><Link to="/" className={location.pathname === '/' ? 'active-link' : ''} onClick={closeMenu}>Home</Link></li>
+          <li><Link to="/about" className={location.pathname === '/about' ? 'active-link' : ''} onClick={closeMenu}>About Us</Link></li>
+          <li><Link to="/membership" className={location.pathname === '/membership' ? 'active-link' : ''} onClick={closeMenu}>Membership</Link></li>
+          <li><Link to="/archives" className={location.pathname.startsWith('/archives') ? 'active-link' : ''} onClick={closeMenu}>Archives</Link></li>
+          <li><Link to="/blogs" className={location.pathname === '/blogs' ? 'active-link' : ''} onClick={closeMenu}>Blogs</Link></li>
+          <li><Link to="/our-roots" className={location.pathname === '/our-roots' ? 'active-link' : ''} onClick={closeMenu}>Our Roots</Link></li>
+          <li><Link to="/join-us" className={location.pathname === '/join-us' ? 'active-link' : ''} onClick={closeMenu}>WANNA JOIN US?</Link></li>
         </ul>
 
         <div style={{ display: 'flex', alignItems: 'center', marginTop: '-8px' }}>
-          <Link to="/events" className="button-fest" onClick={closeMenu}>
+          <Link to="/events" className={`button-fest${location.pathname === '/events' ? ' active-link' : ''}`} onClick={closeMenu}>
             <span className="nav-btn-text">EVENTS</span>
           </Link>
 

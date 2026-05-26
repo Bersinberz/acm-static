@@ -1,10 +1,10 @@
-import React, { type FormEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion as m, AnimatePresence } from "framer-motion";
 import { fadeIn } from '../../components/transitions';
 import ne from '../../assets/HomePage/new.png';
 import sat from '../../assets/HomePage/Sathyabama Institute of Science and Technology.png';
 import grp from '../../assets/HomePage/grp-01.jpeg.jpg';
-import { GlobalLoader } from "../../components/GlobalLoader";
+import sc from '../../assets/acm-loader-logo.png';
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -13,8 +13,6 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTimes,
-  FaPaperPlane,
-  FaExclamationCircle
 } from 'react-icons/fa';
 import { FloatingOrb } from '../../components/StatusMessage';
 import CopyrightFooter from '../../components/Footer';
@@ -42,198 +40,18 @@ const SOCIAL_LINKS = {
 
 const ORG_NAME = "SIST ACM SIGAI STUDENT CHAPTER";
 
-// Validation types
-interface FormErrors {
-  Firstname?: string;
-  Lastname?: string;
-  Email?: string;
-  Mobile?: string;
-  Message?: string;
-}
+// Validation types (kept for future use)
 
-interface FormTouched {
-  Firstname?: boolean;
-  Lastname?: boolean;
-  Email?: boolean;
-  Mobile?: boolean;
-  Message?: boolean;
-}
 
 const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusVisible, setStatusVisible] = useState(false);
-  const [statusMessage, setStatusMessage] = useState("");
-  const [statusType, setStatusType] = useState<"success" | "error">("success");
-
-  // Form state
-  const [formData, setFormData] = useState({
-    Firstname: '',
-    Lastname: '',
-    Email: '',
-    Mobile: '',
-    Message: ''
-  });
-
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<FormTouched>({});
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [statusMessage] = useState("");
+  const [statusType] = useState<"success" | "error">("success");
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-    // Reset form when closing modal
-    if (isModalOpen) {
-      resetForm();
-    }
+    setIsModalOpen(prev => !prev);
   };
-
-  // Validation functions
-  const validateField = (name: keyof typeof formData, value: string): string => {
-    switch (name) {
-      case 'Firstname':
-        if (!value.trim()) return 'First name is required';
-        if (value.length < 2) return 'First name must be at least 2 characters';
-        if (value.length > 50) return 'First name must be less than 50 characters';
-        if (!/^[A-Za-z\s]+$/.test(value)) return 'First name can only contain letters and spaces';
-        return '';
-
-      case 'Lastname':
-        if (!value.trim()) return 'Last name is required';
-        if (value.length < 2) return 'Last name must be at least 2 characters';
-        if (value.length > 50) return 'Last name must be less than 50 characters';
-        if (!/^[A-Za-z\s]+$/.test(value)) return 'Last name can only contain letters and spaces';
-        return '';
-
-      case 'Email':
-        if (!value.trim()) return 'Email is required';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email address';
-        if (value.length > 100) return 'Email must be less than 100 characters';
-        return '';
-
-      case 'Mobile':
-        if (!value.trim()) return 'Mobile number is required';
-        if (!/^[0-9]{10}$/.test(value)) return 'Please enter a valid 10-digit mobile number';
-        return '';
-
-      case 'Message':
-        if (!value.trim()) return 'Message is required';
-        if (value.length < 10) return 'Message must be at least 10 characters';
-        if (value.length > 1000) return 'Message must be less than 1000 characters';
-        return '';
-
-      default:
-        return '';
-    }
-  };
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-    let isValid = true;
-
-    Object.keys(formData).forEach((key) => {
-      const fieldName = key as keyof typeof formData;
-      const error = validateField(fieldName, formData[fieldName]);
-      if (error) {
-        newErrors[fieldName] = error;
-        isValid = false;
-      }
-    });
-
-    setErrors(newErrors);
-    setIsFormValid(isValid);
-    return isValid;
-  };
-
-  // Update form validation when formData changes
-  useEffect(() => {
-    if (Object.keys(touched).length > 0) {
-      validateForm();
-    }
-  }, [formData, touched]);
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name } = e.target;
-    setTouched(prev => ({ ...prev, [name]: true }));
-
-    // Validate the field that just lost focus
-    const fieldName = name as keyof typeof formData;
-    const error = validateField(fieldName, formData[fieldName]);
-    setErrors(prev => ({ ...prev, [fieldName]: error }));
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-
-    // For mobile field, only allow numbers
-    if (name === 'Mobile') {
-      const numericValue = value.replace(/\D/g, '').slice(0, 10);
-      setFormData(prev => ({ ...prev, [name]: numericValue }));
-    } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
-    }
-
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-
-    // Mark field as touched if it has an error and user is correcting
-    if (!touched[name as keyof FormTouched] && errors[name as keyof FormErrors]) {
-      setTouched(prev => ({ ...prev, [name]: true }));
-    }
-  };
-
-  const resetForm = () => {
-    setFormData({
-      Firstname: '',
-      Lastname: '',
-      Email: '',
-      Mobile: '',
-      Message: ''
-    });
-    setErrors({});
-    setTouched({});
-    setIsFormValid(false);
-  };
-
-  const submitForm = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Mark all fields as touched to show all errors
-    const allTouched = Object.keys(formData).reduce((acc, key) => {
-      acc[key as keyof FormTouched] = true;
-      return acc;
-    }, {} as FormTouched);
-    setTouched(allTouched);
-
-    // Validate entire form
-    if (!validateForm()) {
-      setStatusType("error");
-      setStatusMessage("Please fix the errors in the form before submitting.");
-      setStatusVisible(true);
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    // Simulate form submission with hardcoded success response
-    setTimeout(() => {
-      setStatusType("success");
-      setStatusMessage("Message sent successfully! We'll get back to you soon.");
-      setStatusVisible(true);
-      
-      setIsModalOpen(false);
-      resetForm();
-      setIsSubmitting(false);
-    }, 1500);
-  };
-
-  useEffect(() => {
-    if (statusVisible) {
-      const timer = setTimeout(() => setStatusVisible(false), 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [statusVisible]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -241,91 +59,14 @@ const Home: React.FC = () => {
     } else {
       document.body.style.overflow = "";
     }
-
     return () => {
       document.body.style.overflow = "";
     };
   }, [isModalOpen]);
 
-  // Add these styles to your existing style tag
-  const additionalStyles = `
-    /* --- FORM VALIDATION STYLES --- */
-    .inputbx.has-error input,
-    .inputbx.has-error textarea {
-      border-bottom-color: #ef4444 !important;
-      background: rgba(239, 68, 68, 0.05) !important;
-    }
-    
-    .inputbx.has-error input:focus,
-    .inputbx.has-error textarea:focus {
-      border-bottom-color: #dc2626 !important;
-      box-shadow: 0 10px 20px -10px rgba(239, 68, 68, 0.2) !important;
-    }
-    
-    .error-message {
-      color: #ef4444;
-      font-size: 0.85rem;
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .error-icon {
-      font-size: 0.9rem;
-    }
-    
-    .character-count {
-      text-align: right;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
-      margin-top: 4px;
-    }
-    
-    .character-count.warning {
-      color: #f59e0b;
-    }
-    
-    .character-count.error {
-      color: #ef4444;
-    }
-    
-    .submit-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      box-shadow: none !important;
-    }
-    
-    .form-status {
-      text-align: center;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-    
-    .form-status.error {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-    }
-    
-    .form-status.success {
-      background: rgba(34, 197, 94, 0.1);
-      color: #22c55e;
-      border: 1px solid rgba(34, 197, 94, 0.3);
-    }
-  `;
-
   return (
     <>
-      <GlobalLoader isLoading={isSubmitting} />
+
 
       <FloatingOrb
         isVisible={statusVisible}
@@ -653,8 +394,6 @@ const Home: React.FC = () => {
         }
         .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-        ${additionalStyles}
-
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .tech-badge { font-size: 1.2rem; padding: 10px 30px; }
@@ -827,150 +566,183 @@ const Home: React.FC = () => {
         <CopyrightFooter />
       </footer>
 
-      {/* --- ENHANCED MODAL WITH VALIDATION --- */}
+      {/* --- COMING SOON MODAL --- */}
+      <style>{`
+        .coming-soon-overlay {
+          position: fixed; inset: 0; z-index: 1000;
+          background: rgba(0, 0, 0, 0.75);
+          backdrop-filter: blur(6px);
+          display: flex; align-items: center; justify-content: center;
+          padding: 20px;
+        }
+        .coming-soon-card {
+          position: relative;
+          background: rgba(5, 10, 30, 0.95);
+          border: 1px solid rgba(0, 195, 255, 0.35);
+          border-radius: 20px;
+          padding: 48px 40px 40px;
+          max-width: 460px;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 0 60px rgba(0, 195, 255, 0.15), 0 20px 60px rgba(0,0,0,0.5);
+          overflow: hidden;
+        }
+        .coming-soon-card::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, #00c3ff, transparent);
+        }
+        .coming-soon-close {
+          position: absolute; top: 16px; right: 16px;
+          background: rgba(255,255,255,0.07); border: none;
+          color: rgba(255,255,255,0.6); width: 32px; height: 32px;
+          border-radius: 50%; cursor: pointer; font-size: 14px;
+          display: flex; align-items: center; justify-content: center;
+          transition: background 0.2s, color 0.2s;
+        }
+        .coming-soon-close:hover { background: rgba(0,195,255,0.15); color: #fff; }
+        .coming-soon-icon {
+          font-size: 52px; margin-bottom: 16px;
+          display: block;
+        }
+        .coming-soon-card h2 {
+          color: #fff; font-size: 26px; font-weight: 800;
+          margin-bottom: 8px; letter-spacing: 0.5px;
+        }
+        .coming-soon-card h2 span {
+          background: linear-gradient(120deg, #00c3ff, #a78bfa);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .coming-soon-card .subtitle {
+          color: rgba(255,255,255,0.55); font-size: 14px;
+          margin-bottom: 32px; line-height: 1.6;
+        }
+        .coming-soon-divider {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(0,195,255,0.3), transparent);
+          margin-bottom: 28px;
+        }
+        .coming-soon-contact-label {
+          color: rgba(255,255,255,0.4); font-size: 11px;
+          letter-spacing: 2px; text-transform: uppercase;
+          margin-bottom: 16px;
+        }
+        .coming-soon-contact-items {
+          display: flex; flex-direction: column; gap: 12px;
+        }
+        .coming-soon-contact-item {
+          display: flex; align-items: center; gap: 12px;
+          background: rgba(0,195,255,0.06);
+          border: 1px solid rgba(0,195,255,0.15);
+          border-radius: 10px; padding: 12px 16px;
+          text-decoration: none;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .coming-soon-contact-item:hover {
+          background: rgba(0,195,255,0.12);
+          border-color: rgba(0,195,255,0.4);
+          transform: translateY(-2px);
+        }
+        .coming-soon-contact-item .ci-icon {
+          color: #00c3ff; font-size: 18px; flex-shrink: 0;
+        }
+        .coming-soon-contact-item .ci-text {
+          display: flex; flex-direction: column; text-align: left;
+        }
+        .coming-soon-contact-item .ci-label {
+          color: rgba(255,255,255,0.4); font-size: 10px;
+          letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .coming-soon-contact-item .ci-value {
+          color: #fff; font-size: 14px; font-weight: 600;
+        }
+      `}</style>
       <AnimatePresence>
         {isModalOpen && (
-          <div className="modal-overlay">
+          <m.div
+            className="coming-soon-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={(e) => { if (e.target === e.currentTarget) toggleModal(); }}
+          >
             <m.div
-              className="modal-content-styled"
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              className="coming-soon-card"
+              initial={{ opacity: 0, scale: 0.85, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 50 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              exit={{ opacity: 0, scale: 0.85, y: 40 }}
+              transition={{ type: "spring", damping: 22, stiffness: 280 }}
             >
-              <button className="close-modal" onClick={toggleModal}><FaTimes /></button>
+              <button className="coming-soon-close" onClick={toggleModal} aria-label="Close">
+                <FaTimes />
+              </button>
 
-              <h3 className="modal-title">
-                Send <span className="hero-highlight">your Query</span>
-              </h3>
+              <m.img
+                src={sc}
+                alt="SIGAI Logo"
+                style={{ width: '72px', height: '72px', objectFit: 'contain', marginBottom: '16px' }}
+                initial={{ scale: 0, rotate: -20 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.15, type: "spring", damping: 14, stiffness: 260 }}
+              />
 
-              <form className="form" onSubmit={submitForm} noValidate>
-                <div className='formBx'>
-                  {/* First Name */}
-                  <div className={`inputbx ${errors.Firstname && touched.Firstname ? 'has-error' : ''}`}>
-                    <span>First Name</span>
-                    <input
-                      type='text'
-                      name='Firstname'
-                      value={formData.Firstname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      required
-                      disabled={isSubmitting}
-                      autoComplete='off'
-                      maxLength={50}
-                    />
-                    {errors.Firstname && touched.Firstname && (
-                      <div className="error-message">
-                        <FaExclamationCircle className="error-icon" /> {errors.Firstname}
-                      </div>
-                    )}
+              <m.h2
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.35 }}
+              >
+                <span>Coming Soon</span>
+              </m.h2>
+
+              <m.p
+                className="subtitle"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.28, duration: 0.35 }}
+              >
+                This feature is coming soon. In the meantime, feel free to reach out to us directly.
+              </m.p>
+
+              <m.div
+                className="coming-soon-divider"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.35, duration: 0.4 }}
+              />
+
+              <m.p
+                className="coming-soon-contact-label"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                Contact Us
+              </m.p>
+
+              <m.div
+                className="coming-soon-contact-items"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.35 }}
+              >
+                <a className="coming-soon-contact-item" href="tel:+917799350212">
+                  <FaPhoneAlt className="ci-icon" />
+                  <div className="ci-text">
+                    <span className="ci-label">Phone</span>
+                    <span className="ci-value">+91 7799350212</span>
                   </div>
-
-                  {/* Last Name */}
-                  <div className={`inputbx ${errors.Lastname && touched.Lastname ? 'has-error' : ''}`}>
-                    <span>Last Name</span>
-                    <input
-                      type='text'
-                      name='Lastname'
-                      value={formData.Lastname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      required
-                      autoComplete='off'
-                      disabled={isSubmitting}
-                      maxLength={50}
-                    />
-                    {errors.Lastname && touched.Lastname && (
-                      <div className="error-message">
-                        <FaExclamationCircle className="error-icon" /> {errors.Lastname}
-                      </div>
-                    )}
+                </a>
+                <a className="coming-soon-contact-item" href="mailto:sist.sigai@gmail.com">
+                  <FaEnvelope className="ci-icon" />
+                  <div className="ci-text">
+                    <span className="ci-label">Email</span>
+                    <span className="ci-value">sist.sigai@gmail.com</span>
                   </div>
-
-                  {/* Email */}
-                  <div className={`inputbx ${errors.Email && touched.Email ? 'has-error' : ''}`}>
-                    <span>Email Address</span>
-                    <input
-                      type='email'
-                      name='Email'
-                      value={formData.Email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      required
-                      autoComplete='off'
-                      disabled={isSubmitting}
-                      maxLength={100}
-                    />
-                    {errors.Email && touched.Email && (
-                      <div className="error-message">
-                        <FaExclamationCircle className="error-icon" /> {errors.Email}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Mobile */}
-                  <div className={`inputbx ${errors.Mobile && touched.Mobile ? 'has-error' : ''}`}>
-                    <span>Mobile Number</span>
-                    <input
-                      type='tel'
-                      name='Mobile'
-                      value={formData.Mobile}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      pattern="[0-9]{10}"
-                      autoComplete='off'
-                      inputMode="numeric"
-                      title="Enter a valid 10-digit mobile number"
-                      required
-                      disabled={isSubmitting}
-                      maxLength={10}
-                    />
-                    {errors.Mobile && touched.Mobile && (
-                      <div className="error-message">
-                        <FaExclamationCircle className="error-icon" /> {errors.Mobile}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Message */}
-                  <div className={`inputbx full-width ${errors.Message && touched.Message ? 'has-error' : ''}`}>
-                    <span>Your Message</span>
-                    <textarea
-                      name='Message'
-                      rows={4}
-                      value={formData.Message}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      autoComplete='off'
-                      required
-                      disabled={isSubmitting}
-                      maxLength={1000}
-                    ></textarea>
-                    <div className={`character-count ${formData.Message.length > 900 ? 'error' : formData.Message.length > 800 ? 'warning' : ''}`}>
-                      {formData.Message.length}/1000
-                    </div>
-                    {errors.Message && touched.Message && (
-                      <div className="error-message">
-                        <FaExclamationCircle className="error-icon" /> {errors.Message}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className='inputbx full-width'>
-                    <button
-                      type='submit'
-                      className="submit-btn"
-                      disabled={isSubmitting || (!isFormValid && Object.keys(touched).length > 0)}
-                    >
-                      {isSubmitting ? "TRANSMITTING..." : "Send Query"} <FaPaperPlane />
-                    </button>
-                  </div>
-                </div>
-              </form>
+                </a>
+              </m.div>
             </m.div>
-          </div>
+          </m.div>
         )}
       </AnimatePresence>
     </>
