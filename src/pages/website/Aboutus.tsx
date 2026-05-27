@@ -981,8 +981,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "S.Monisha",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408488/members/erzlrwey8zovpauzwfsx.jpg",
-      "imagePublicId": "members/erzlrwey8zovpauzwfsx",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779904294/members/nex1tz7v0qzwy3vs5sal.jpg",
+      "imagePublicId": "members/nex1tz7v0qzwy3vs5sal",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -997,8 +997,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Monika g",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408541/members/epuefdv7poeroidhzcxd.jpg",
-      "imagePublicId": "members/epuefdv7poeroidhzcxd",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779903589/members/ns13hlzq8ry2b0hetpo2.jpg",
+      "imagePublicId": "members/ns13hlzq8ry2b0hetpo2",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1029,8 +1029,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Lakshana S",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408587/members/uivl9pqmgj0kbtpe7iar.jpg",
-      "imagePublicId": "members/uivl9pqmgj0kbtpe7iar",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779904122/members/o0y2o8is89pjzwuj94i0.jpg",
+      "imagePublicId": "members/o0y2o8is89pjzwuj94i0",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1061,8 +1061,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Kirthi",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408673/members/d8sbxzctnr86gutbmoka.jpg",
-      "imagePublicId": "members/d8sbxzctnr86gutbmoka",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779904215/members/ltt1ej5kaa0idmwyto7m.jpg",
+      "imagePublicId": "members/ltt1ej5kaa0idmwyto7m",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1125,8 +1125,8 @@ const About: React.FC<AboutProps> = () => {
       "name": "Tanuja E",
       "designation": "Volunteer Unit",
       "batch": "2025–2026",
-      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1768408797/members/czhhjtz9mfit6w02tmbw.jpg",
-      "imagePublicId": "members/czhhjtz9mfit6w02tmbw",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779904050/members/lddgo8t9uigzdkhxfmoz.jpg",
+      "imagePublicId": "members/lddgo8t9uigzdkhxfmoz",
       "social": {
         "linkedin": "",
         "instagram": "",
@@ -1167,6 +1167,28 @@ const About: React.FC<AboutProps> = () => {
       "createdAt": { "$date": "2026-01-14T16:39:57.199Z" },
       "updatedAt": { "$date": "2026-01-14T16:39:57.199Z" },
       "__v": 0
+    },
+    {
+      "_id": {
+        "$oid": "6a172d15893e02104438c6ae"
+      },
+      "name": "A Yaswanth",
+      "designation": "Volunteer Unit",
+      "batch": "2025–2026",
+      "imageUrl": "https://res.cloudinary.com/dxpglrdwn/image/upload/v1779903768/members/z8garjf7buh6l2j0icye.jpg",
+      "imagePublicId": "members/z8garjf7buh6l2j0icye",
+      "createdAt": {
+        "$date": "2026-05-27T17:42:45.240Z"
+      },
+      "updatedAt": {
+        "$date": "2026-05-27T17:42:45.240Z"
+      },
+      "__v": 0,
+      social: {
+        linkedin: '',
+        instagram: '',
+        facebook: ''
+      }
     },
     {
       "_id": { "$oid": "6967c79106cedad2e68d6368" },

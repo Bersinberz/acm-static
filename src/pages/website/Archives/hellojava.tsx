@@ -164,16 +164,6 @@ const HelloJava = () => {
                 >
                     Hello Java'25
                 </m.h1>
-
-                <m.p
-                    className="content-text"
-                    style={{ textAlign: 'center' }}
-                    variants={fadeIn("up", 0.3)}
-                    initial="hidden"
-                    animate="show"
-                >
-                    Welcoming the New Batch. September 4th, 2024.
-                </m.p>
             </div>
 
             {/* --- INTRO TEXT --- */}
@@ -183,7 +173,7 @@ const HelloJava = () => {
                 animate="show"
             >
                 <p className="content-text">
-                    We are happy to share that the SIST ACM SIGAI Student Chapter successfully conducted an exciting event for the new generation, "Synergy for Freshers," on 4th September 2024 (Wednesday) at the Dental Auditorium, Sathyabama Institute of Science and Technology, Chennai.
+                    Hello Java’25 was an engaging two-day workshop designed for second-year students to strengthen their understanding of Java programming. The event combined interactive technical sessions, creative activities, and placement-oriented coding challenges to create a collaborative learning environment. Students explored fundamental and advanced Java concepts, participated in a Java Meme Contest, and enhanced their problem-solving skills through coding activities, gaining confidence and practical knowledge for future academic and career opportunities.
                 </p>
             </m.div>
 
@@ -226,7 +216,7 @@ const HelloJava = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    The event began with our core unit members, <strong>Ms. Janllyn Avantikha and Ms. Vaishnavi Battina</strong>, introducing our Student Chapter to the audience, followed by a speech from our honorable Head of the Department, <strong>Dr. Vigneshwari.</strong>
+                    The event began with interactive Java learning sessions conducted for second-year students in their respective classrooms. The sessions focused on strengthening students' programming fundamentals while also introducing them to advanced Java concepts. Participants actively engaged in hands-on learning activities, which helped them gain a deeper understanding of object-oriented programming, problem-solving techniques, and practical applications of Java.
                 </m.p>
 
                 <m.p
@@ -236,7 +226,7 @@ const HelloJava = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    The first round of the event was a non-technical fun activity, "Trash to Treasure." All the students were divided into teams and provided with a bunch of trash and chart paper. They were tasked with creating something innovative from the materials they were given. The students showed immense enthusiasm and worked wonders with their creations. The results were evaluated by our faculty coordinators, <strong>Dr. R. Sathyabama Krishna and Dr. Anu Barathi</strong>. Two winners were selected from the teams.
+                    To make the workshop more engaging and enjoyable, a <strong>"Java Meme Contest"</strong> was conducted where students creatively expressed programming concepts through humor and relatable content. The activity encouraged participants to think creatively while connecting technical concepts with fun and interactive ideas. Students enthusiastically participated and showcased their creativity through innovative meme designs.
                 </m.p>
 
                 <m.p
@@ -246,7 +236,7 @@ const HelloJava = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    Following this was an orientation session where the members of our Student Chapter took the stage to explain the various future opportunities available to students after graduation. <strong>Ms. Sri Soundharya</strong>, Secretary of the Student Chapter, gave a detailed explanation of the current placement opportunities and how to aim for them. <strong>Ms. Sushree Sonali Patra</strong>, a core unit member, discussed entrepreneurship opportunities, highlighting its advantages and drawbacks with real-life examples. <strong>Ms. Vaishnavi Battina</strong>, another core unit member, familiarized the students with post-graduation degrees available to them, their eligibility criteria, and how to approach them. The students found this session extremely informative.
+                    Following this, a placement-oriented mini coding challenge was organized to help students test their technical and logical thinking abilities. Participants solved coding problems designed to enhance their problem-solving skills and prepare them for future placement opportunities. The challenge created a competitive yet motivating environment where students were able to apply the concepts they had learned during the sessions.
                 </m.p>
 
                 <m.p
@@ -256,7 +246,7 @@ const HelloJava = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    <strong>Ms. Deekshitha</strong>, Treasurer of the Student Chapter, engaged with the students and spoke about the anxiety surrounding career decisions, offering advice on how to handle it and passionately pursue one's dreams.
+                    Throughout the two-day workshop, students actively interacted with coordinators and peers, making the learning process collaborative and engaging. The combination of technical learning, creative activities, and coding practice ensured that participants not only improved their Java knowledge but also gained confidence in applying programming concepts effectively.
                 </m.p>
 
                 <m.p
@@ -266,7 +256,7 @@ const HelloJava = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    Overall, the event was a great success, and all the students thoroughly enjoyed it. We are thankful to all the dignitaries, faculty coordinators, student coordinators, and freshers who attended the event, contributing to its success. We look forward to organizing more such events in the future.
+                    Overall, Hello Java'25 was a successful and enriching workshop that provided students with a strong foundation in Java programming while encouraging creativity, teamwork, and analytical thinking in an interactive learning environment.
                 </m.p>
             </div>
 

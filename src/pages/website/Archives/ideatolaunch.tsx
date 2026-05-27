@@ -170,9 +170,8 @@ const IdeaToLaunch = () => {
                 animate="show"
             >
                 <p className="content-text">
-                    InsightX’24 was a dynamic event designed to showcase innovation and creativity within the tech community. It featured a blend of technical and non-technical competitions alongside an insightful guest talk on the Big Data revolution. The event provided an excellent platform for students to compete and learn, promoting collaborative knowledge sharing. Cash prizes were awarded to the winners, and e-certificates were given to recognize every participant.
+                    Idea to Launch was an insightful seminar designed to introduce students to the world of startups and entrepreneurship. The session, led by <strong>Mr. Sai Varun C</strong>, Co-Founder of Alletrix Tech LLP, guided participants on transforming innovative ideas into successful startup ventures. Students gained valuable insights into entrepreneurship concepts such as idea identification, skill development, and investment opportunities, creating an inspiring and informative learning experience for aspiring entrepreneurs.
                 </p>
-
             </m.div>
 
             {/* --- MARQUEE GALLERY --- */}
@@ -214,7 +213,7 @@ const IdeaToLaunch = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    The event began with our core unit members, <strong>Ms. Janllyn Avantikha and Ms. Vaishnavi Battina</strong>, introducing our Student Chapter to the audience, followed by a speech from our honorable Head of the Department, <strong>Dr. Vigneshwari.</strong>
+                    The event began with an engaging seminar session led by <strong>Mr. Sai Varun C</strong>, Co-Founder of Alletrix Tech LLP, who shared his inspiring entrepreneurial journey and experiences in building a startup from scratch. Students actively listened as he explained the challenges, risks, and opportunities involved in establishing a successful startup venture. His personal experiences and practical insights motivated participants to think innovatively and consider entrepreneurship as a potential career path.
                 </m.p>
 
                 <m.p
@@ -224,7 +223,7 @@ const IdeaToLaunch = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    The first round of the event was a non-technical fun activity, "Trash to Treasure." All the students were divided into teams and provided with a bunch of trash and chart paper. They were tasked with creating something innovative from the materials they were given. The students showed immense enthusiasm and worked wonders with their creations. The results were evaluated by our faculty coordinators, <strong>Dr. R. Sathyabama Krishna and Dr. Anu Barathi</strong>. Two winners were selected from the teams.
+                    During the session, students were introduced to important entrepreneurship concepts such as idea identification, market analysis, skill development, and business planning. The speaker explained how innovative ideas can be transformed into practical startup ventures through consistent effort, strategic planning, and adaptability. Participants gained a better understanding of the importance of identifying real-world problems and developing creative solutions that could create meaningful impact in society.
                 </m.p>
 
                 <m.p
@@ -234,7 +233,7 @@ const IdeaToLaunch = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    Following this was an orientation session where the members of our Student Chapter took the stage to explain the various future opportunities available to students after graduation. <strong>Ms. Sri Soundharya</strong>, Secretary of the Student Chapter, gave a detailed explanation of the current placement opportunities and how to aim for them. <strong>Ms. Sushree Sonali Patra</strong>, a core unit member, discussed entrepreneurship opportunities, highlighting its advantages and drawbacks with real-life examples. <strong>Ms. Vaishnavi Battina</strong>, another core unit member, familiarized the students with post-graduation degrees available to them, their eligibility criteria, and how to approach them. The students found this session extremely informative.
+                    One of the major highlights of the event was the interactive discussion on investment opportunities and startup growth. Students learned about different funding methods, including investors, partnerships, and startup support initiatives available for young entrepreneurs. The session also focused on the importance of communication skills, leadership qualities, teamwork, and decision-making in successfully managing a startup environment. Participants enthusiastically engaged in the discussions and clarified their doubts regarding entrepreneurship and business development.
                 </m.p>
 
                 <m.p
@@ -244,7 +243,7 @@ const IdeaToLaunch = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    <strong>Ms. Deekshitha</strong>, Treasurer of the Student Chapter, engaged with the students and spoke about the anxiety surrounding career decisions, offering advice on how to handle it and passionately pursue one's dreams.
+                    The seminar created an inspiring atmosphere where students were encouraged to think creatively, explore innovative ideas, and understand the practical aspects of launching a startup. Participants showed great interest throughout the session and actively interacted with the speaker during discussions and question-answer segments. The event successfully provided students with valuable exposure to entrepreneurship and startup culture while motivating them to develop confidence in pursuing their own innovative ideas.
                 </m.p>
 
                 <m.p
@@ -254,7 +253,7 @@ const IdeaToLaunch = () => {
                     whileInView="show"
                     viewport={{ once: false }}
                 >
-                    Overall, the event was a great success, and all the students thoroughly enjoyed it. We are thankful to all the dignitaries, faculty coordinators, student coordinators, and freshers who attended the event, contributing to its success. We look forward to organizing more such events in the future.
+                    Overall, Idea to Launch was a highly informative and motivational seminar that encouraged students to explore entrepreneurship, innovation, and leadership through real-world insights and interactive learning experiences effectively.
                 </m.p>
             </div>
 
