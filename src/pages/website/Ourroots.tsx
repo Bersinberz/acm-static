@@ -1,4 +1,4 @@
-import { motion as m, type Variants } from "framer-motion";
+import { motion as m } from "framer-motion";
 import { useNavigate, type To } from 'react-router-dom';
 import { useRef, useEffect } from "react";
 import usePageTitle from '../../components/usePageTitle';
@@ -311,29 +311,22 @@ const Ourroots = () => {
         {/* Title Section */}
         <m.h1
           initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
           className='timeline-main-title'
         >
           Our Journey & <span className="highlight-text">Batches</span>
         </m.h1>
 
         {/* Timeline Wrapper */}
-        <m.div
-          className="timeline-container"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="timeline-container">
           {/* The Center Gradient Line */}
           <m.div
             className="timeline-line"
             initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            viewport={{ once: true }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
+            style={{ transformOrigin: 'top' }}
           />
 
           {timelineData.map((item, index) => {
@@ -343,7 +336,9 @@ const Ourroots = () => {
               <m.div
                 key={index}
                 className="timeline-item"
-                variants={itemVariants(direction)}
+                initial={{ opacity: 0, y: 50, x: direction === 'left' ? -50 : 50 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                transition={{ type: 'spring', stiffness: 50, damping: 14, delay: 0.3 + index * 0.2 }}
               >
                 <div className="timeline-dot"></div>
 
@@ -362,7 +357,7 @@ const Ourroots = () => {
               </m.div>
             );
           })}
-        </m.div>
+        </div>
       </div>
     </>
   );

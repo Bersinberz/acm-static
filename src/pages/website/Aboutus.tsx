@@ -1761,6 +1761,13 @@ const About: React.FC<AboutProps> = () => {
     }
   }, [location]);
 
+  // Reset selectedUnit to 'volunteers' if switching to 2025-2026 and research is selected
+  useEffect(() => {
+    if (selectedYear === '2025-2026' && selectedUnit === 'research') {
+      setSelectedUnit('volunteers');
+    }
+  }, [selectedYear, selectedUnit]);
+
 
   // --- HELPER FUNCTIONS ---
   const convertSocialToArray = (
@@ -2256,6 +2263,7 @@ const About: React.FC<AboutProps> = () => {
             options={[
               { value: 'volunteers', label: 'Volunteers Unit' },
               { value: 'media', label: 'Media Unit' },
+              ...(selectedYear === '2024-2025' ? [{ value: 'research', label: 'Research Unit' }] : []),
             ]}
           />
         </div>
