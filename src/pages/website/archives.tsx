@@ -18,6 +18,11 @@ import ThinkTankers from "../../assets/Archives/Events/ThinkTankers.jpeg"
 import ideatolaunch from "../../assets/Archives/Events/ideatolaunch.jpg"
 import linkedin from "../../assets/Archives/Events/linkedin.jpg"
 import harmonix from "../../assets/Archives/Events/Harmonix.jpg"
+import Gitready from "../../assets/Archives/Events/Gitready.jpeg"
+import Quicktrain from "../../assets/Archives/Events/Quicktrain.jpeg"
+import CareerCompass from "../../assets/Archives/Events/CareerCompass.jpeg"
+import Technopoly from "../../assets/Archives/Events/Technopoly.jpeg"
+import MindAuction from "../../assets/Archives/Events/MindAuction.jpeg"
 
 // Marquee Images
 import azure1 from "../../assets/Archives/Slider/azure1.jpg"
@@ -131,7 +136,47 @@ const eventsData = [
     desc: "A seminar-based event that introduced students to AI-generated music using Suno, combining a live demo with hands-on track creation and recognition for the top entries.",
     img: harmonix,
     link: "/archives/harmonix"
-  }
+  },
+  {
+    id: 13,
+    title: "Git Ready",
+    date: "12 DEC 2025",
+    desc: "A hands-on GitHub workshop where students learned version control fundamentals, repository management, and collaborative workflows through practical demonstrations led by senior student coordinators.",
+    img: Gitready,
+    link: "/archives/Gitready"
+  },
+  {
+    id: 14,
+    title: "The QuickTrain Quest",
+    date: "15 DEC 2025",
+    desc: "An AI and machine learning hands-on session where students built real-time models using Teachable Machine, creating gesture detectors, emotion recognizers, and sound classifiers through team-based activities.",
+    img: Quicktrain,
+    link: "/archives/Quicktrain"
+  },
+  {
+    id: 15,
+    title: "Career Compass",
+    date: "16 DEC 2025",
+    desc: "A peer-led career guidance session where final-year students shared placement experiences, internship journeys, and practical preparation strategies to help juniors navigate their professional paths.",
+    img: CareerCompass,
+    link: "/archives/CareerCompass"
+  },
+  {
+    id: 16,
+    title: "Technopoly",
+    date: "17 DEC 2025",
+    desc: "A Monopoly-inspired technical event where teams progressed across a game board by solving coding challenges, debugging puzzles, and surprise rounds that tested strategy, teamwork, and logical thinking.",
+    img: Technopoly,
+    link: "/archives/Technopoly"
+  },
+  {
+    id: 17,
+    title: "Mind Auction",
+    date: "18 DEC 2025",
+    desc: "A debate-based non-technical event that challenged students to present and defend viewpoints on assigned topics, sharpening their public speaking, critical thinking, and communication skills.",
+    img: MindAuction,
+    link: "/archives/MindAuction"
+  },
 ];
 
 const Archives = () => {

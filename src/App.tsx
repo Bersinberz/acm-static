@@ -33,6 +33,11 @@ import ThinkTankers from "./pages/website/Archives/ThinkTankers";
 import IdeaToLaunch from "./pages/website/Archives/ideatolaunch";
 import Linkedin from "./pages/website/Archives/linkedin";
 import Harmonix from "./pages/website/Archives/harmonix";
+import Gitready from "./pages/website/Archives/Gitready";
+import Quicktrain from "./pages/website/Archives/Quicktrain";
+import CareerCompass from "./pages/website/Archives/CareerCompass"
+import Technopoly from "./pages/website/Archives/Technopoly";
+import MindAuction from "./pages/website/Archives/MindAuction";
 
 function App() {
   const location = useLocation();
@@ -89,6 +94,11 @@ function App() {
               <Route path="/archives/ideatolaunch" element={<IdeaToLaunch />} />
               <Route path="/archives/linkedin" element={<Linkedin />} />
               <Route path="/archives/harmonix" element={<Harmonix />} />
+              <Route path="/archives/Gitready" element={<Gitready />} />
+              <Route path="/archives/Quicktrain" element={<Quicktrain />} />
+              <Route path="/archives/CareerCompass" element={<CareerCompass />} />
+              <Route path="/archives/Technopoly" element={<Technopoly />} />
+              <Route path="/archives/MindAuction" element={<MindAuction />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/our-roots" element={<Ourroots />} />
               <Route path="/join-us" element={<JoinUs />} />
