@@ -3,6 +3,7 @@ import { FaLaptop, FaExclamationTriangle, FaIdCard, FaUserPlus, FaEnvelopeOpenTe
 import { fadeIn } from "../../components/transitions";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import usePageTitle from '../../components/usePageTitle';
 
 // --- Data: Steps Configuration ---
 const stepsData = [
@@ -341,8 +342,7 @@ const styles = `
 
 const Membership = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
+  usePageTitle('Membership');  useEffect(() => {
     console.log("✅ Admin shortcut (Ctrl + Shift + G) attached");
 
     const handleKeyDown = (e: KeyboardEvent) => {

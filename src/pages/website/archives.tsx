@@ -1,9 +1,8 @@
 import { motion as m } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from "react-icons/fa";
-
-// Import the fadeIn utility
 import { fadeIn } from '../../components/transitions';
+import usePageTitle from '../../components/usePageTitle';
 
 // Event Images
 import inaugural from '../../assets/Archives/Events/inaugural.jpg';
@@ -180,6 +179,7 @@ const eventsData = [
 ];
 
 const Archives = () => {
+  usePageTitle('Archives');
   return (
     <div className="archives-page">
       <style>{`

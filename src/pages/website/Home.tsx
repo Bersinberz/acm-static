@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import usePageTitle from '../../components/usePageTitle';
 import { motion as m, AnimatePresence } from "framer-motion";
 import { fadeIn } from '../../components/transitions';
 import ne from '../../assets/HomePage/new.png';
@@ -53,6 +54,53 @@ const Home: React.FC = () => {
     setIsModalOpen(prev => !prev);
   };
 
+  usePageTitle('Home');
+
+  /* ── Stats counter ── */
+  const STATS = [
+    { value: 1,   suffix: ' Year',    label: 'Est. March 2024' },
+    { value: 17,  suffix: '+ Events', label: 'Hosted & Counting' },
+    { value: 100, suffix: '+ Members',label: 'Strong Community' },
+    { value: 1,   suffix: 'st',       label: 'SIGAI Chapter in TN' },
+  ];
+
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [counts, setCounts] = useState(STATS.map(() => 0));
+  const [triggered, setTriggered] = useState(false);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered) {
+          setTriggered(true);
+          STATS.forEach((stat, i) => {
+            const duration = 1400;
+            const steps = 40;
+            const increment = stat.value / steps;
+            let current = 0;
+            const interval = setInterval(() => {
+              current += increment;
+              if (current >= stat.value) {
+                current = stat.value;
+                clearInterval(interval);
+              }
+              setCounts(prev => {
+                const next = [...prev];
+                next[i] = Math.floor(current);
+                return next;
+              });
+            }, duration / steps);
+          });
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [triggered]);
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -91,6 +139,43 @@ const Home: React.FC = () => {
           0% { background-position: 0 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0 50%; }
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            width: 100%; background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+        }
+        .stats-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            padding: 0;
+        }
+        .stat-item {
+            padding: 36px 20px; text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.3s;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { background: rgba(59,130,246,0.05); }
+        .stat-value {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900; line-height: 1;
+            background: linear-gradient(120deg, #fff 0%, #93c5fd 50%, #3b82f6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 6px;
+        }
+        .stat-label {
+            font-size: 0.75rem; color: #94a3b8;
+            letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+        }
+        @media (max-width: 640px) {
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+            .stat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+            .stat-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); border-right: none; }
         }
 
         /* --- LAYOUT CONTAINERS --- */
@@ -436,6 +521,27 @@ const Home: React.FC = () => {
           disablePictureInPicture
           style={{ pointerEvents: "none" }}
         />
+      </div>
+
+      {/* ── STATS BAR ── */}
+      <div className="stats-bar" ref={statsRef}>
+        <div className="stats-inner">
+          {STATS.map((stat, i) => (
+            <m.div
+              key={stat.label}
+              className="stat-item"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <div className="stat-value">
+                {counts[i]}{stat.suffix}
+              </div>
+              <div className="stat-label">{stat.label}</div>
+            </m.div>
+          ))}
+        </div>
       </div>
 
       <div className='About'>

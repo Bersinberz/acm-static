@@ -4,6 +4,7 @@ import Tilt from 'react-vanilla-tilt';
 import { useLocation } from 'react-router-dom';
 import { fadeIn } from '../../components/transitions';
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import usePageTitle from '../../components/usePageTitle';
 
 interface Member {
   _id: { $oid: string };
@@ -154,6 +155,7 @@ const MemberCard = ({ member, isLarge = false }: { member: FrontendMember; isLar
 };
 
 const About: React.FC<AboutProps> = () => {
+  usePageTitle('About Us');
   const [selectedUnit, setSelectedUnit] = useState<string>('volunteers');
   const location = useLocation();
   const [selectedYear, setSelectedYear] = useState<string>('2025-2026');

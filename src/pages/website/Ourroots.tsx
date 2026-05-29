@@ -1,6 +1,7 @@
 import { motion as m, type Variants } from "framer-motion";
 import { useNavigate, type To } from 'react-router-dom';
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import usePageTitle from '../../components/usePageTitle';
 
 // --- Timeline Data ---
 const timelineData = [
@@ -296,6 +297,7 @@ const styles = `
 const Ourroots = () => {
   const navigate = useNavigate();
   const ref = useRef(null);
+  usePageTitle('Our Roots');
 
   const handleVisitClick = (link: To) => {
     navigate(link);

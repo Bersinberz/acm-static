@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion as m, AnimatePresence, type Variants } from "framer-motion";
 import { FaMedium, FaSearch, } from "react-icons/fa";
 import { fetchMediumBlogs } from '../../services/website/blogService';
+import usePageTitle from '../../components/usePageTitle';
 
 // --- TYPES ---
 interface BlogPost {
@@ -13,8 +14,10 @@ interface BlogPost {
 }
 
 const Blogs: React.FC = () => {
+    usePageTitle('Blogs');
     const [posts, setPosts] = useState<BlogPost[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(true);
 
     // --- FETCH DATA ---
     useEffect(() => {
@@ -24,6 +27,8 @@ const Blogs: React.FC = () => {
                 setPosts(data);
             } catch (error) {
                 console.error("Error fetching blog posts:", error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -208,6 +213,46 @@ const Blogs: React.FC = () => {
 .blog-card:hover .blog-image img {
   transform: scale(1.05);
 }
+
+        /* --- LOADER --- */
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            min-height: 300px;
+            width: 100%;
+        }
+
+        .loader-dots {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            animation: dotBounce 1.2s ease-in-out infinite;
+        }
+
+        .loader-dot:nth-child(1) { animation-delay: 0s; }
+        .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1); opacity: 1; box-shadow: 0 0 12px var(--primary-glow); }
+        }
+
+        .loader-text {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
       `}</style>
 
             {/* --- HEADER --- */}
@@ -255,6 +300,20 @@ const Blogs: React.FC = () => {
             </m.div>
 
             {/* --- BLOG POSTS --- */}
+            {loading ? (
+                <m.div
+                    className="loader-container"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                >
+                    <div className="loader-dots">
+                        <div className="loader-dot" />
+                        <div className="loader-dot" />
+                        <div className="loader-dot" />
+                    </div>
+                    <p className="loader-text">Fetching articles...</p>
+                </m.div>
+            ) : (
             <m.div
                 className="blog-grid"
                 variants={containerVariants}
@@ -319,6 +378,7 @@ const Blogs: React.FC = () => {
                     )}
                 </AnimatePresence>
             </m.div>
+            )}
 
 
         </div>
