@@ -1,6 +1,6 @@
 import { motion as m } from "framer-motion";
 import { useNavigate, type To } from 'react-router-dom';
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import usePageTitle from '../../components/usePageTitle';
 
 // --- Timeline Data ---
@@ -18,37 +18,6 @@ const timelineData = [
     link: "/about?batch=2025-2026"
   },
 ];
-
-// --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = (direction: "left" | "right"): Variants => ({
-  hidden: {
-    opacity: 0,
-    y: 50,
-    x: direction === "left" ? -50 : 50
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      damping: 14,
-      mass: 1
-    }
-  },
-});
 
 // --- CSS Styles ---
 const styles = `
