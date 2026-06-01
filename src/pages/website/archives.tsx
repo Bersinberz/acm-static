@@ -329,11 +329,11 @@ const Archives = () => {
 
         /* CALCULATION: 
            (Item Width + Gap) * Number of Unique Items
-           (600px + 30px) * 5 = 3150px
+           (600px + 30px) * 8 = 5040px
         */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-630px * 5)); }
+            100% { transform: translateX(calc(-630px * 8)); }
         }
 
         /* --- TIMELINE CONTAINER --- */
@@ -440,10 +440,10 @@ const Archives = () => {
           .marquee-item { width: 350px; height: 280px; }
           .marquee-container { height: 280px; }
           
-          /* Recalculate scroll for mobile width (350+30)*5 */
+          /* Recalculate scroll for mobile width (350+30)*8 */
            @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-380px * 5)); }
+            100% { transform: translateX(calc(-380px * 8)); }
            }
           
           .timeline-item, .timeline-item.reverse {
@@ -488,9 +488,10 @@ const Archives = () => {
         animate="show"
       >
         <div className="marquee-track">
-          {sliderImages.map((img, index) => (
+          {/* Duplicate the array so the loop is seamless */}
+          {[...sliderImages, ...sliderImages].map((img, index) => (
             <div className="marquee-item" key={index}>
-              <img src={img} alt="Archive Highlight" />
+              <img src={img} alt="Archive Highlight" loading="lazy" />
             </div>
           ))}
         </div>

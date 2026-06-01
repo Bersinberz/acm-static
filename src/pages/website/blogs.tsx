@@ -18,7 +18,8 @@ interface BlogPost {
 //  "logo"    → show LogoLoading splash for 1500 ms (no fetch yet)
 //  "fetch"   → logo gone, inline fetch-loader shown, API call in flight
 //  "done"    → data ready, render cards
-type LoadPhase = 'logo' | 'fetch' | 'done';
+//  "error"   → fetch failed, show animated error state
+type LoadPhase = 'logo' | 'fetch' | 'done' | 'error';
 
 const Blogs: React.FC = () => {
     usePageTitle('Blogs');
@@ -42,10 +43,10 @@ const Blogs: React.FC = () => {
             try {
                 const data = await fetchMediumBlogs();
                 setPosts(data);
+                setPhase('done');
             } catch (error) {
                 console.error("Error fetching blog posts:", error);
-            } finally {
-                setPhase('done');
+                setPhase('error');
             }
         };
 
@@ -267,6 +268,65 @@ const Blogs: React.FC = () => {
             letter-spacing: 2px;
             text-transform: uppercase;
         }
+
+        /* --- ERROR STATE --- */
+        .blog-error-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            min-height: 40vh;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .blog-error-icon {
+            font-size: 3rem;
+            animation: errorPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes errorPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%       { transform: scale(1.15); opacity: 0.7; }
+        }
+
+        .blog-error-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f87171;
+            margin: 0;
+        }
+
+        .blog-error-sub {
+            color: #64748b;
+            font-size: 0.9rem;
+            max-width: 340px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .blog-retry-btn {
+            padding: 11px 30px;
+            border-radius: 50px;
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #f87171;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-retry-btn:hover {
+            background: rgba(248, 113, 113, 0.2);
+            border-color: #f87171;
+            box-shadow: 0 0 20px rgba(248, 113, 113, 0.25);
+            transform: translateY(-2px);
+        }
       `}</style>
 
             {/* --- HEADER --- */}
@@ -323,6 +383,28 @@ const Blogs: React.FC = () => {
                 >
                     <div className="fetch-ring" />
                     <p className="fetch-loader-text">Fetching articles…</p>
+                </m.div>
+            )}
+
+            {/* --- ERROR STATE --- */}
+            {phase === 'error' && (
+                <m.div
+                    className="blog-error-wrap"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className="blog-error-icon">📡</div>
+                    <p className="blog-error-title">Failed to load articles</p>
+                    <p className="blog-error-sub">
+                        Could not reach the Medium feed. Check your connection and try again.
+                    </p>
+                    <button
+                        className="blog-retry-btn"
+                        onClick={() => setPhase('fetch')}
+                    >
+                        Retry
+                    </button>
                 </m.div>
             )}
 

@@ -1,25 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import sc from '../assets/acm-loader-logo.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    let title = 'SIST ACM SIGAI Student chapter';
-    switch (location.pathname) {
-      case '/about': title = 'ABOUT US - SIST ACM SIGAI Student chapter'; break;
-      case '/membership': title = 'MEMBERSHIP - SIST ACM SIGAI Student chapter'; break;
-      case '/archives': title = 'ARCHIVES - SIST ACM SIGAI Student chapter'; break;
-      case '/blogs': title = 'BLOGS - SIST ACM SIGAI Student chapter'; break;
-      case '/our-roots': title = 'ROOTS - SIST ACM SIGAI Student chapter'; break;
-      case '/join-us': title = 'RECRUITMENT - SIST ACM SIGAI Student chapter'; break;
-      case '/events': title = 'EVENTS - SIST ACM SIGAI Student chapter'; break;
-      default: title = 'SIST ACM SIGAI Student chapter';
-    }
-    document.title = title;
-  }, [location.pathname]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);

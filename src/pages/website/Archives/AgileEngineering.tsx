@@ -25,7 +25,7 @@ const AgileEngineering = () => {
           background: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${aebg});
           background-size: cover;
           background-position: center;
-          background-attachment: fixed;
+          background-attachment: scroll;
           background-repeat: no-repeat;
         }
 

@@ -1,8 +1,6 @@
 import { motion as m } from "framer-motion";
 import { FaLaptop, FaExclamationTriangle, FaIdCard, FaUserPlus, FaEnvelopeOpenText, FaSignInAlt, FaDownload } from "react-icons/fa";
 import { fadeIn } from "../../components/transitions";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import usePageTitle from '../../components/usePageTitle';
 
 // --- Data: Steps Configuration ---
@@ -341,27 +339,7 @@ const styles = `
 `;
 
 const Membership = () => {
-  const navigate = useNavigate();
-  usePageTitle('Membership');  useEffect(() => {
-    console.log("✅ Admin shortcut (Ctrl + Shift + G) attached");
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.ctrlKey &&
-        e.shiftKey &&
-        e.key.toLowerCase() === "g"
-      ) {
-        e.preventDefault();
-        navigate("/admin/login");
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [navigate]);
+  usePageTitle('Membership');
 
   return (
     <>
