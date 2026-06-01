@@ -38,6 +38,14 @@ import Quicktrain from "./pages/website/Archives/Quicktrain";
 import CareerCompass from "./pages/website/Archives/CareerCompass"
 import Technopoly from "./pages/website/Archives/Technopoly";
 import MindAuction from "./pages/website/Archives/MindAuction";
+import AgileEngineering from "./pages/website/Archives/AgileEngineering";
+import Cognibot from "./pages/website/Archives/Cognibot";
+import ResumeBuilding from "./pages/website/Archives/ResumeBuilding";
+import TechUNO from "./pages/website/Archives/TechUNO";
+import SpaceZ from "./pages/website/Archives/SpaceZ";
+import StartupXcel from "./pages/website/Archives/StartupXcel";
+import CyberSprint from "./pages/website/Archives/CyberSprint";
+import Techmemeathon from "./pages/website/Archives/Techmemeathon";
 
 function App() {
   const location = useLocation();
@@ -46,11 +54,17 @@ function App() {
   const isFirstLoad = useRef(true);
 
   /* -------- SHOW LOADER ON EVERY ROUTE CHANGE -------- */
+  // Pages that manage their own loading state (e.g. async data fetch) are excluded
+  // so the route loader doesn't delay their mount and cause a blank flash.
+  const SELF_LOADING_ROUTES = ['/blogs'];
+
   useEffect(() => {
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
       return;
     }
+
+    if (SELF_LOADING_ROUTES.includes(location.pathname)) return;
 
     setLoading(true);
 
@@ -99,6 +113,14 @@ function App() {
               <Route path="/archives/CareerCompass" element={<CareerCompass />} />
               <Route path="/archives/Technopoly" element={<Technopoly />} />
               <Route path="/archives/MindAuction" element={<MindAuction />} />
+              <Route path="/archives/AgileEngineering" element={<AgileEngineering />} />
+              <Route path="/archives/Cognibot" element={<Cognibot />} />
+              <Route path="/archives/ResumeBuilding" element={<ResumeBuilding />} />
+              <Route path="/archives/Techuno" element={<TechUNO />} />
+              <Route path="/archives/SpaceZ" element={<SpaceZ />} />
+              <Route path="/archives/StartupXcel" element={<StartupXcel />} />
+              <Route path="/archives/CyberSprint" element={<CyberSprint />} />
+              <Route path="/archives/Techmemeathon" element={<Techmemeathon />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/our-roots" element={<Ourroots />} />
               <Route path="/join-us" element={<JoinUs />} />

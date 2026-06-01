@@ -3,6 +3,7 @@ import { motion as m, AnimatePresence, type Variants } from "framer-motion";
 import { FaMedium, FaSearch, } from "react-icons/fa";
 import { fetchMediumBlogs } from '../../services/website/blogService';
 import usePageTitle from '../../components/usePageTitle';
+import LogoLoading from '../../components/logoLoader';
 
 // --- TYPES ---
 interface BlogPost {
@@ -13,14 +14,30 @@ interface BlogPost {
     thumbnail?: string;
 }
 
+// Two-phase loading:
+//  "logo"    → show LogoLoading splash for 1500 ms (no fetch yet)
+//  "fetch"   → logo gone, inline fetch-loader shown, API call in flight
+//  "done"    → data ready, render cards
+type LoadPhase = 'logo' | 'fetch' | 'done';
+
 const Blogs: React.FC = () => {
     usePageTitle('Blogs');
     const [posts, setPosts] = useState<BlogPost[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [loading, setLoading] = useState(true);
+    const [phase, setPhase] = useState<LoadPhase>('logo');
 
-    // --- FETCH DATA ---
+    // Phase 1 → Phase 2: wait 1500 ms then start fetching
     useEffect(() => {
+        const splash = setTimeout(() => {
+            setPhase('fetch');
+        }, 1500);
+        return () => clearTimeout(splash);
+    }, []);
+
+    // Phase 2 → Phase 3: fetch once the logo splash is done
+    useEffect(() => {
+        if (phase !== 'fetch') return;
+
         const loadBlogs = async () => {
             try {
                 const data = await fetchMediumBlogs();
@@ -28,12 +45,12 @@ const Blogs: React.FC = () => {
             } catch (error) {
                 console.error("Error fetching blog posts:", error);
             } finally {
-                setLoading(false);
+                setPhase('done');
             }
         };
 
         loadBlogs();
-    }, []);
+    }, [phase]);
 
     const filteredPosts = posts.filter(post =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,9 +67,14 @@ const Blogs: React.FC = () => {
         show: {
             y: 0,
             opacity: 1,
-            transition: { type: "spring" as const, stiffness: 60 } // FIX: Added 'as const'
+            transition: { type: "spring" as const, stiffness: 60 }
         }
     };
+
+    // --- PHASE 1: Logo splash ---
+    if (phase === 'logo') {
+        return <LogoLoading />;
+    }
 
     return (
         <div className="blog-page">
@@ -197,61 +219,53 @@ const Blogs: React.FC = () => {
         }
 
         .blog-image {
-  margin: 20px 0 10px;
-  border-radius: 14px;
-  overflow: hidden;
-}
+            margin: 20px 0 10px;
+            border-radius: 14px;
+            overflow: hidden;
+        }
 
-.blog-image img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: transform 0.4s ease;
-}
+        .blog-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+            transition: transform 0.4s ease;
+        }
 
-.blog-card:hover .blog-image img {
-  transform: scale(1.05);
-}
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
 
-        /* --- LOADER --- */
-        .loader-container {
+        /* --- FETCH LOADER (phase 2) --- */
+        .fetch-loader-wrap {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            min-height: 300px;
+            gap: 18px;
+            min-height: 40vh;
             width: 100%;
         }
 
-        .loader-dots {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .loader-dot {
-            width: 12px;
-            height: 12px;
+        .fetch-ring {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            background: var(--primary-blue);
-            animation: dotBounce 1.2s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.08);
+            border-top-color: #3b82f6;
+            box-shadow: 0 0 18px rgba(59, 130, 246, 0.45);
+            animation: ring-spin 0.9s linear infinite;
         }
 
-        .loader-dot:nth-child(1) { animation-delay: 0s; }
-        .loader-dot:nth-child(2) { animation-delay: 0.2s; }
-        .loader-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes dotBounce {
-            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-            40% { transform: scale(1); opacity: 1; box-shadow: 0 0 12px var(--primary-glow); }
+        @keyframes ring-spin {
+            to { transform: rotate(360deg); }
         }
 
-        .loader-text {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+        .fetch-loader-text {
+            color: #64748b;
+            font-size: 0.88rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
       `}</style>
 
@@ -299,21 +313,21 @@ const Blogs: React.FC = () => {
                 </a>
             </m.div>
 
-            {/* --- BLOG POSTS --- */}
-            {loading ? (
+            {/* --- PHASE 2: Fetch loader --- */}
+            {phase === 'fetch' && (
                 <m.div
-                    className="loader-container"
+                    className="fetch-loader-wrap"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                 >
-                    <div className="loader-dots">
-                        <div className="loader-dot" />
-                        <div className="loader-dot" />
-                        <div className="loader-dot" />
-                    </div>
-                    <p className="loader-text">Fetching articles...</p>
+                    <div className="fetch-ring" />
+                    <p className="fetch-loader-text">Fetching articles…</p>
                 </m.div>
-            ) : (
+            )}
+
+            {/* --- PHASE 3: Blog grid --- */}
+            {phase === 'done' && (
             <m.div
                 className="blog-grid"
                 variants={containerVariants}
@@ -363,6 +377,7 @@ const Blogs: React.FC = () => {
                             </m.div>
                         ))
                     ) : (
+                        searchTerm.trim() !== '' && (
                         <m.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -375,11 +390,11 @@ const Blogs: React.FC = () => {
                         >
                             No transmission found matching query.
                         </m.div>
+                        )
                     )}
                 </AnimatePresence>
             </m.div>
             )}
-
 
         </div>
     );

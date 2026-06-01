@@ -9,6 +9,8 @@ const LogoLoading = () => {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
+    width: '100%',
+    background: 'radial-gradient(circle, #1e1b4b 0%, #0f172a 30%, #020617 60%, #000000 100%)',
   };
 
   const loadingImageStyle: CSSProperties = {
