@@ -162,7 +162,7 @@ const linkedin = () => {
                     initial="hidden"
                     animate="show"
                 >
-                    Get linked with <br /> Linkedin
+                    Get linked with Linkedin
                 </m.h1>
             </div>
 

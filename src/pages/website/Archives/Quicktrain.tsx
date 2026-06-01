@@ -71,6 +71,70 @@ const Quicktrain = () => {
             font-weight: 300;
             padding: 0 20px;
         }
+        /* --- SPEAKER CARD STYLES --- */
+        .guest-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows cards to wrap */
+            gap: 40px; /* Space between cards */
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .guest-card {
+             position: relative;
+             width: 300px;
+             height: 400px;
+             overflow: hidden;
+             box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 1), inset 0 0 0 1000px rgba(67, 52, 109, .2);
+             border-radius: 15px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             transition: transform 0.3s ease;
+             background: rgba(30, 41, 59, 0.8); 
+             backdrop-filter: blur(5px);
+        }
+
+        .guest-card:hover { transform: scale(1.05); }
+
+        .guest-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .guest-card .card-overlay {
+            position: absolute;
+            bottom: -160px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(15px);
+            background: rgba(0,0,0,0.8);
+            box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transition: bottom 0.5s;
+        }
+
+        .guest-card:hover .card-overlay {
+            bottom: 0;
+        }
+
+        .guest-info h3 {
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            margin: 0;
+        }
+
 
         strong {
             color: #fff;
@@ -189,6 +253,39 @@ const Quicktrain = () => {
                     ))}
                 </div>
             </div>
+
+            {/* --- SPEAKERS --- */}
+            <m.h2
+                className="section-title"
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.3 }}
+            >
+                OUR <span className="highlight-blue">SPEAKER</span>
+            </m.h2>
+
+            <m.div
+                className="guest-container"
+                variants={fadeIn("up", 0.3)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.3 }}
+            >
+                {/* Speaker 1 */}
+                <div className="guest-card">
+                    <img src={'https://res.cloudinary.com/dxpglrdwn/image/upload/v1768412524/members/eg8fmcxskzb4qjlvz5vh.jpg'} alt="Ms. Anushri Rajkumar" />
+                    <div className="card-overlay">
+                        <div className="guest-info">
+                            <h3>Ms. Anushri Rajkumar<br />
+                                <span style={{ fontSize: '11px', fontWeight: '300', textTransform: 'initial', color: '#ccc' }}>
+                                    3rd year CSE-AIML
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </m.div>
 
             {/* --- HIGHLIGHTS TEXT --- */}
             <m.h2

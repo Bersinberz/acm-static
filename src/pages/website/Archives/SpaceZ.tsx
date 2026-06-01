@@ -6,7 +6,7 @@ import s2 from '../../../assets/Archives/SpaceZ/s2.jpeg';
 import s3 from '../../../assets/Archives/SpaceZ/s3.jpeg';
 import s4 from '../../../assets/Archives/SpaceZ/s4.jpeg';
 import s5 from '../../../assets/Archives/SpaceZ/s5.jpeg';
-import sbg from '../../../assets/Archives/SpaceZ/sbg.jpg';
+import sbg from '../../../assets/Archives/SpaceZ/sbg.avif';
 
 const SpaceZ = () => {
     const images = [s1, s2, s3, s4, s5];

@@ -8,10 +8,11 @@ import c4 from '../../../assets/Archives/Cognibot/c4.jpeg';
 import c5 from '../../../assets/Archives/Cognibot/c5.jpeg';
 import c6 from '../../../assets/Archives/Cognibot/c6.jpeg';
 import cbg from '../../../assets/Archives/Cognibot/cbg.jpg';
+import AjayKumar from "../../../assets/Archives/Cognibot/AjayKumar.jpeg"
 
 const Cognibot = () => {
     const images = [c1, c2, c3, c4, c5, c6];
-    const sliderImages = [...images, ...images];
+    const sliderImages = [...images, ...images, ...images];
 
     return (
         <div className="synergy-page">
@@ -112,6 +113,70 @@ const Cognibot = () => {
             transform: scale(1.1);
         }
 
+        /* --- SPEAKER CARD STYLES --- */
+        .guest-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows cards to wrap */
+            gap: 40px; /* Space between cards */
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .guest-card {
+             position: relative;
+             width: 300px;
+             height: 400px;
+             overflow: hidden;
+             box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 1), inset 0 0 0 1000px rgba(67, 52, 109, .2);
+             border-radius: 15px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             transition: transform 0.3s ease;
+             background: rgba(30, 41, 59, 0.8); 
+             backdrop-filter: blur(5px);
+        }
+
+        .guest-card:hover { transform: scale(1.05); }
+
+        .guest-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .guest-card .card-overlay {
+            position: absolute;
+            bottom: -160px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(15px);
+            background: rgba(0,0,0,0.8);
+            box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transition: bottom 0.5s;
+        }
+
+        .guest-card:hover .card-overlay {
+            bottom: 0;
+        }
+
+        .guest-info h3 {
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            margin: 0;
+        }
+
         @keyframes scroll {
             0%   { transform: translateX(0); }
             100% { transform: translateX(calc(-630px * 12)); }
@@ -143,7 +208,7 @@ const Cognibot = () => {
             {/* INTRO */}
             <m.div variants={fadeIn("up", 0.2)} initial="hidden" animate="show">
                 <p className="content-text">
-                    COGNIBOT: Industrial Applications of Machine Learning was an informative technical session designed to expose students to the real-world implementation of Machine Learning across industries. Led by <strong>Mr. Ajay Kumar, CTO of Cognibot,</strong> the session explored practical applications, automation strategies, predictive analytics, and intelligent decision-making systems. Participants gained valuable industry-oriented insights into how organizations leverage Machine Learning technologies to improve efficiency, solve complex problems, and drive innovation.
+                    COGNIBOT: Industrial Applications of Machine Learning was an informative technical session designed to expose students to the real-world implementation of Machine Learning across industries. Led by <strong>Mr. Ajay Kumar</strong>, CTO of Cognibot, the session explored practical applications, automation strategies, predictive analytics, and intelligent decision-making systems. Participants gained valuable industry-oriented insights into how organizations leverage Machine Learning technologies to improve efficiency, solve complex problems, and drive innovation.
                 </p>
             </m.div>
 
@@ -166,6 +231,39 @@ const Cognibot = () => {
                     ))}
                 </div>
             </div>
+
+            {/* --- SPEAKERS --- */}
+            <m.h2
+                className="section-title"
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.3 }}
+            >
+                OUR <span className="highlight-blue">SPEAKER</span>
+            </m.h2>
+
+            <m.div
+                className="guest-container"
+                variants={fadeIn("up", 0.3)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.3 }}
+            >
+                {/* Speaker 1 */}
+                <div className="guest-card">
+                    <img src={AjayKumar} alt="Mr. Ajay Kumar" />
+                    <div className="card-overlay">
+                        <div className="guest-info">
+                            <h3>Mr. Ajay Kumar<br />
+                                <span style={{ fontSize: '11px', fontWeight: '300', textTransform: 'initial', color: '#ccc' }}>
+                                    Chief Technology Officer, Cognibot
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </m.div>
 
             {/* HIGHLIGHTS */}
             <m.h2

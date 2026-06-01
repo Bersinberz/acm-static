@@ -226,7 +226,7 @@ const Genai = () => {
                     initial="hidden"
                     animate="show"
                 >
-                    DEEP DIVE INTO <br /> GEN-AI
+                    DEEP DIVE INTO GEN-AI
                 </m.h1>
 
                 <m.p
