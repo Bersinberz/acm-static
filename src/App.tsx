@@ -11,6 +11,7 @@ import JoinUs from "./pages/website/Joinus";
 import Archives from "./pages/website/archives";
 import Blogs from "./pages/website/blogs";
 import Events from "./pages/website/events";
+import NotFound from "./pages/website/NotFound";
 
 /* ---------------- COMPONENTS ---------------- */
 import Nav from "./components/Navbar";
@@ -64,7 +65,14 @@ function App() {
       return;
     }
 
+    // Don't show the route loader for self-loading pages or unknown routes
+    const isKnownRoute = [
+      '/', '/about', '/membership', '/archives', '/blogs',
+      '/our-roots', '/join-us', '/events'
+    ].includes(location.pathname) || location.pathname.startsWith('/archives/');
+
     if (SELF_LOADING_ROUTES.includes(location.pathname)) return;
+    if (!isKnownRoute) return; // 404 page handles its own entrance animation
 
     setLoading(true);
 
@@ -127,6 +135,9 @@ function App() {
               <Route path="/archives/StartupXcel"     element={<Suspense fallback={<LogoLoading />}><StartupXcel /></Suspense>} />
               <Route path="/archives/CyberSprint"     element={<Suspense fallback={<LogoLoading />}><CyberSprint /></Suspense>} />
               <Route path="/archives/Techmemeathon"   element={<Suspense fallback={<LogoLoading />}><Techmemeathon /></Suspense>} />
+
+              {/* Catch-all — any unknown route → 404 page */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </motion.div>
         )}
