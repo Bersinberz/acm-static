@@ -42,7 +42,7 @@ const Quicktrain = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -58,7 +58,7 @@ const Quicktrain = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -260,7 +260,7 @@ const Quicktrain = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 OUR <span className="highlight-blue">SPEAKER</span>
             </m.h2>
@@ -270,7 +270,7 @@ const Quicktrain = () => {
                 variants={fadeIn("up", 0.3)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 {/* Speaker 1 */}
                 <div className="guest-card">
@@ -293,7 +293,7 @@ const Quicktrain = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -304,7 +304,7 @@ const Quicktrain = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an informative introduction to Artificial Intelligence and Machine Learning concepts conducted by <strong>Ms. Anushri Rajkumar</strong>, who guided participants through the fundamentals of Teachable Machine Learning and real-time AI model training. Students were introduced to the basic processes involved in training and testing machine learning models and gained an understanding of how artificial intelligence systems learn from data through practical demonstrations. The session created an interactive learning environment that encouraged students to actively explore AI technologies and their real-world applications.
                 </m.p>
@@ -314,7 +314,7 @@ const Quicktrain = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introductory explanation, participants were guided through hands-on demonstrations that showcased the process of building AI models using Teachable Machine Learning tools. Students learned how datasets are created, how machine learning models are trained, and how trained models can recognize patterns and respond to user inputs. The demonstrations simplified complex AI concepts and allowed participants to understand machine learning workflows through practical implementation rather than theoretical explanations alone.
                 </m.p>
@@ -324,7 +324,7 @@ const Quicktrain = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the team-based practical activity where students collaborated to build their own AI models. Participants enthusiastically worked on projects such as gesture detectors, emotion recognizers, and sound classifiers while experimenting with different training methods and testing approaches. The activity encouraged teamwork, creativity, analytical thinking, and problem-solving while allowing students to practically apply the concepts learned during the session. Students actively interacted with peers and coordinators throughout the workshop, creating an engaging and collaborative atmosphere.
                 </m.p>
@@ -334,7 +334,7 @@ const Quicktrain = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The hands-on approach of the session helped participants gain confidence in understanding AI model development and practical machine learning processes. Students explored how AI systems can be trained to identify and respond to different forms of input data in real-time applications. The event successfully created curiosity and interest among participants toward artificial intelligence and emerging technologies through interactive learning experiences and experimentation.
                 </m.p>
@@ -344,7 +344,7 @@ const Quicktrain = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, The QuickTrain Quest was a successful and enriching hands-on session that combined technical learning, teamwork, creativity, and practical exposure to Artificial Intelligence and Machine Learning concepts in an engaging and experiential learning environment.
                 </m.p>

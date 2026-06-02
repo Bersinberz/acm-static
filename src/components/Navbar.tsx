@@ -18,7 +18,7 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: linear-gradient(45deg, #F5F7F6, #5CA0F2);
+          background: linear-gradient(45deg, #F5F7F6, var(--primary-blue));
           background-size: 300% 300%;
           animation: gradientShift 12s ease-in-out infinite;
           height: 80px;
@@ -26,7 +26,7 @@ const Navbar = () => {
           position: fixed;
           top: 0;
           z-index: 1000;
-          font-family: "Noto Sans JP", sans-serif;
+          font-family: 'Poppins', sans-serif;
           padding: 0 20px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
           transition: all 0.3s ease;
@@ -213,7 +213,7 @@ const Navbar = () => {
             position: fixed;
             width: 100%;
             height: 100vh;
-            background: linear-gradient(45deg, #83EAF1, #63A4FF);
+            background: linear-gradient(45deg, #83EAF1, var(--primary-blue));
             background-size: 300% 300%;
             animation: gradientShift 12s ease-in-out infinite;
             top: 0;

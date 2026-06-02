@@ -364,7 +364,7 @@ const Membership = () => {
             initial="hidden"
             animate="show"
             className="main-title"
-            viewport={{ once: false, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             ACM <span className="highlight-text">Membership Guide</span>
           </m.h1>

@@ -46,7 +46,7 @@ const Harmonix = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -62,7 +62,7 @@ const Harmonix = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -201,7 +201,7 @@ const Harmonix = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -212,7 +212,7 @@ const Harmonix = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an informative seminar session that introduced students to the concept of AI-generated music and its growing impact on creative industries. Participants were given an overview of the Suno application and learned how artificial intelligence can transform simple text prompts into complete musical compositions. The session highlighted the role of AI in modern content creation and demonstrated how technology can support creativity, innovation, and artistic expression in unique ways. Students actively engaged throughout the presentation and showed great curiosity in exploring the capabilities of AI-powered music generation.
                 </m.p>
@@ -222,7 +222,7 @@ const Harmonix = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introductory session, a live demonstration was conducted to showcase the practical use of the Suno application. Participants observed how prompts could be converted into songs with lyrics, melodies, and musical arrangements within a short period of time. The demonstration helped students understand the technical process behind AI-generated music while also encouraging them to think creatively about using technology in artistic fields. The interactive explanation created excitement among participants and motivated them to experiment with their own musical ideas.
                 </m.p>
@@ -232,7 +232,7 @@ const Harmonix = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the hands-on activity conducted during the afternoon session, where students created their own AI-generated tracks using the Suno application. Participants enthusiastically experimented with different prompts, themes, and musical styles to develop unique compositions. The activity encouraged creativity, innovation, and independent thinking while allowing students to practically apply the concepts introduced earlier in the seminar. Students actively collaborated, exchanged ideas, and explored different creative approaches throughout the competition.
                 </m.p>
@@ -242,7 +242,7 @@ const Harmonix = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     At the conclusion of the event, the best AI-generated tracks were evaluated and the top three entries were selected based on creativity, originality, and overall presentation. Certificates were awarded to the winners in recognition of their efforts and performance. Overall, Harmonix was a successful and engaging event that combined technology, creativity, and practical learning through interactive participation and innovative musical experimentation.
                 </m.p>

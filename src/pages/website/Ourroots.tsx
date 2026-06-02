@@ -21,21 +21,15 @@ const timelineData = [
 
 // --- CSS Styles ---
 const styles = `
-  :root {
-    --primary-blue: #3b82f6; /* Matching your scrollbar thumb */
-    --primary-glow: rgba(59, 130, 246, 0.5);
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-  }
-
   /* Base Container - Transparent to let global bg show */
   .timeline-page {
     width: 100%;
-    padding: 120px 5% 100px;
-    font-family: 'Poppins', sans-serif; /* Distinct font for headers */
+    padding: 120px 20px 100px;
+    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     background: transparent; 
     position: relative;
+    box-sizing: border-box;
   }
 
   /* --- Typography --- */
@@ -61,19 +55,20 @@ const styles = `
   .timeline-container {
     position: relative;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 0;
+    box-sizing: border-box;
   }
 
   /* The Vertical Line */
   .timeline-line {
     position: absolute;
     width: 4px;
-    /* Gradient adapted to fade out at ends */
     background: linear-gradient(180deg, 
       rgba(59, 130, 246, 0) 0%, 
-      rgba(59, 130, 246, 0.6) 15%, 
-      rgba(59, 130, 246, 0.6) 85%, 
+      rgba(59, 130, 246, 0.6) 10%, 
+      rgba(59, 130, 246, 0.6) 90%, 
       rgba(59, 130, 246, 0) 100%
     );
     top: 0;
@@ -86,12 +81,12 @@ const styles = `
   }
 
   .timeline-item {
-    padding: 20px 60px;
+    padding: 20px 56px;
     position: relative;
     width: 50%;
     box-sizing: border-box;
     z-index: 2;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   /* --- The Central Node (Dot) --- */
@@ -100,7 +95,7 @@ const styles = `
     top: 45px;
     width: 22px;
     height: 22px;
-    background: #0f0524; /* Matches your global dark bg */
+    background: #0f0524;
     border: 3px solid var(--primary-blue);
     border-radius: 50%;
     z-index: 3;
@@ -115,16 +110,15 @@ const styles = `
   }
 
   /* Positioning Left/Right */
-  .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-  .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+  .timeline-item:nth-child(odd)  { left: 0;   text-align: right; }
+  .timeline-item:nth-child(even) { left: 50%; text-align: left;  }
 
-  .timeline-item:nth-child(odd) .timeline-dot { right: -11px; }
-  .timeline-item:nth-child(even) .timeline-dot { left: -11px; }
+  .timeline-item:nth-child(odd)  .timeline-dot { right: -11px; }
+  .timeline-item:nth-child(even) .timeline-dot { left:  -11px; }
 
   /* --- Glass Card --- */
   .timeline-content {
-    padding: 40px;
-    /* High transparency to show your moving gradient behind */
+    padding: 36px;
     background: rgba(255, 255, 255, 0.03); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -136,7 +130,6 @@ const styles = `
     overflow: hidden;
   }
 
-  /* Hover Effect */
   .timeline-content:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.07);
@@ -154,8 +147,8 @@ const styles = `
     background: var(--primary-blue);
     opacity: 0.6;
   }
-  .timeline-item:nth-child(odd) .timeline-content::before { right: -20px; }
-  .timeline-item:nth-child(even) .timeline-content::before { left: -20px; }
+  .timeline-item:nth-child(odd)  .timeline-content::before { right: -20px; }
+  .timeline-item:nth-child(even) .timeline-content::before { left:  -20px; }
 
   /* --- Text Content --- */
   .timeline-year {
@@ -171,7 +164,7 @@ const styles = `
   }
 
   .timeline-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #fff;
     margin: 0 0 15px 0;
     font-weight: 700;
@@ -181,7 +174,7 @@ const styles = `
   .timeline-content p {
     font-size: 1rem;
     line-height: 1.7;
-    color: #cbd5e1; /* Light gray for readability on dark bg */
+    color: #cbd5e1;
     margin-bottom: 25px;
   }
 
@@ -231,35 +224,33 @@ const styles = `
   }
 
   @media screen and (max-width: 768px) {
-    .timeline-page { padding: 80px 20px; }
+    .timeline-page { padding: 100px 16px 60px; }
     
-    .timeline-line { left: 30px; transform: none; }
+    .timeline-line { left: 20px; transform: none; }
     
     .timeline-item {
       width: 100%;
-      padding-left: 70px;
+      left: 0 !important;
+      padding-left: 56px;
       padding-right: 0;
       text-align: left;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
-    .timeline-item:nth-child(even) { left: 0; }
-    
-    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(odd)  .timeline-dot,
     .timeline-item:nth-child(even) .timeline-dot {
-      left: 19px; 
+      left: 9px;
       right: auto;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(odd)  .timeline-content::before,
     .timeline-item:nth-child(even) .timeline-content::before {
       left: -20px;
       right: auto;
-      width: 20px;
     }
     
-    .timeline-content { padding: 25px; }
-    .timeline-content h2 { font-size: 1.6rem; }
+    .timeline-content { padding: 24px; }
+    .timeline-content h2 { font-size: 1.4rem; }
   }
 `;
 

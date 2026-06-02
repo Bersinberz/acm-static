@@ -491,7 +491,7 @@ const Archives = () => {
           {/* Duplicate the array so the loop is seamless */}
           {[...sliderImages, ...sliderImages].map((img, index) => (
             <div className="marquee-item" key={index}>
-              <img src={img} alt="Archive Highlight" loading="lazy" />
+              <img src={img} alt="Archive Highlight" />
             </div>
           ))}
         </div>
@@ -512,11 +512,11 @@ const Archives = () => {
                 className="image-wrapper"
                 initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="image-frame">
-                  <img src={item.img} alt={item.title} loading="lazy" />
+                  <img src={item.img} alt={item.title} />
                 </div>
               </m.div>
 
@@ -525,7 +525,7 @@ const Archives = () => {
                 className="content-wrapper"
                 initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               >
                 <div className="big-date">{item.date}</div>

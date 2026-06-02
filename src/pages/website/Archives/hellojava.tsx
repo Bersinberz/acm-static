@@ -48,7 +48,7 @@ const HelloJava = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -64,7 +64,7 @@ const HelloJava = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -203,7 +203,7 @@ const HelloJava = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -214,7 +214,7 @@ const HelloJava = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with interactive Java learning sessions conducted for second-year students in their respective classrooms. The sessions focused on strengthening students' programming fundamentals while also introducing them to advanced Java concepts. Participants actively engaged in hands-on learning activities, which helped them gain a deeper understanding of object-oriented programming, problem-solving techniques, and practical applications of Java.
                 </m.p>
@@ -224,7 +224,7 @@ const HelloJava = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     To make the workshop more engaging and enjoyable, a <strong>"Java Meme Contest"</strong> was conducted where students creatively expressed programming concepts through humor and relatable content. The activity encouraged participants to think creatively while connecting technical concepts with fun and interactive ideas. Students enthusiastically participated and showcased their creativity through innovative meme designs.
                 </m.p>
@@ -234,7 +234,7 @@ const HelloJava = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following this, a placement-oriented mini coding challenge was organized to help students test their technical and logical thinking abilities. Participants solved coding problems designed to enhance their problem-solving skills and prepare them for future placement opportunities. The challenge created a competitive yet motivating environment where students were able to apply the concepts they had learned during the sessions.
                 </m.p>
@@ -244,7 +244,7 @@ const HelloJava = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Throughout the two-day workshop, students actively interacted with coordinators and peers, making the learning process collaborative and engaging. The combination of technical learning, creative activities, and coding practice ensured that participants not only improved their Java knowledge but also gained confidence in applying programming concepts effectively.
                 </m.p>
@@ -254,7 +254,7 @@ const HelloJava = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Hello Java'25 was a successful and enriching workshop that provided students with a strong foundation in Java programming while encouraging creativity, teamwork, and analytical thinking in an interactive learning environment.
                 </m.p>

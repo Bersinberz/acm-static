@@ -48,7 +48,7 @@ const linkedin = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -64,7 +64,7 @@ const linkedin = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -203,7 +203,7 @@ const linkedin = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -214,7 +214,7 @@ const linkedin = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introductory session that familiarized first-year students with LinkedIn and its growing importance in today's professional world. Participants were introduced to the purpose of LinkedIn as a professional networking platform and learned how it helps students connect with industry professionals, explore career opportunities, and build a strong online presence. The session created awareness among students about the importance of maintaining a professional identity from the early stages of their academic journey.
                 </m.p>
@@ -224,7 +224,7 @@ const linkedin = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, students were guided through the process of creating their own LinkedIn accounts and setting up professional profiles. The session included step-by-step explanations on adding profile details such as educational background, skills, achievements, certifications, and profile photographs. Participants actively followed the instructions and learned how to organize their profiles effectively to create a positive first impression for recruiters and professional connections.
                 </m.p>
@@ -234,7 +234,7 @@ const linkedin = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the interactive guidance provided on exploring LinkedIn features and using the platform for career development. Students learned how to build professional networks, connect with peers and mentors, follow organizations, and stay updated with industry trends. The session also explained how LinkedIn can support internship opportunities, job searches, and personal branding through active engagement and content sharing. Participants showed great interest in understanding how the platform could contribute to their future academic and professional growth.
                 </m.p>
@@ -244,7 +244,7 @@ const linkedin = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The workshop encouraged active participation and interaction throughout the session, with students clarifying doubts and exploring the platform practically during the event. The hands-on approach made the learning process engaging and easy to understand for beginners. Participants gained confidence in using LinkedIn effectively and recognized its value in developing professional communication and networking skills.
                 </m.p>
@@ -254,7 +254,7 @@ const linkedin = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Get Linked with LinkedIn was a highly informative and practical workshop that successfully introduced students to professional networking and career development through interactive learning and guided profile-building activities for future success.
                 </m.p>

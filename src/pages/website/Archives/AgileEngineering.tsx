@@ -172,7 +172,7 @@ const AgileEngineering = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -183,7 +183,7 @@ const AgileEngineering = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The session began with an insightful introduction by <strong>Mr. Sunil Kumar Suvvari</strong>, who discussed the importance of agility, empathy, and inclusion in modern engineering practices. Participants were introduced to the concept of designing technology that is accessible to people with diverse abilities and needs. The speaker emphasized that successful technological solutions should not only focus on functionality but also ensure accessibility, usability, and inclusivity for a wider audience. Students actively engaged with the discussion and gained a broader understanding of user-centric design principles.
                 </m.p>
@@ -193,7 +193,7 @@ const AgileEngineering = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, the speaker explained the core principles of inclusive design and their significance in creating universal products. Participants learned how accessibility considerations can be integrated into the development process from the initial stages of design. Through practical examples and industry insights, students understood how inclusive thinking contributes to better user experiences and improves the effectiveness of technological solutions. The session highlighted the importance of considering diverse user requirements while designing products and services.
                 </m.p>
@@ -203,7 +203,7 @@ const AgileEngineering = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the discussion on accessibility features and their real-world applications. The speaker demonstrated how technologies such as <strong>voice control, gesture navigation, screen readers</strong>, and other assistive tools help users overcome challenges and interact effectively with digital systems. Students gained valuable knowledge about the role of accessibility in ensuring equal access to technology and improving usability across different environments and situations.
                 </m.p>
@@ -213,7 +213,7 @@ const AgileEngineering = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The session also explored various types of accessibility needs, including <strong>permanent, temporary, and situational</strong> challenges. Participants learned how inclusive design benefits not only individuals with disabilities but also a broader range of users in different contexts. The interactive discussions encouraged students to think critically about accessibility and consider its importance while developing future technological innovations.
                 </m.p>
@@ -223,7 +223,7 @@ const AgileEngineering = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Agile Engineering was a highly informative and engaging expert talk that successfully introduced students to inclusive design principles, accessibility practices, and user-centered engineering approaches. The session inspired participants to incorporate empathy, accessibility, and inclusivity into their future technology solutions and professional development journeys.
                 </m.p>

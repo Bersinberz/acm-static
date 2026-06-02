@@ -171,7 +171,7 @@ const StartupXcel = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -182,7 +182,7 @@ const StartupXcel = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an exciting <strong>ideation round</strong> where participants were encouraged to identify real-world problems and develop innovative startup concepts to address them. Students worked collaboratively in teams to brainstorm ideas, analyze challenges, and propose practical solutions with potential social and commercial impact. The activity encouraged creative thinking and entrepreneurial problem-solving while allowing participants to explore how innovative ideas can be transformed into meaningful business opportunities. Teams actively discussed their concepts and demonstrated enthusiasm throughout the ideation process.
                 </m.p>
@@ -192,7 +192,7 @@ const StartupXcel = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the initial round, participants advanced to the <strong>branding and design stage</strong>, which focused on developing unique identities for their startup concepts. Teams created logos, brand names, and visual elements that effectively represented their business ideas and objectives. This round encouraged students to think beyond technical solutions and understand the importance of branding, marketing, and visual communication in building a successful startup. Participants displayed remarkable creativity and originality while designing identities that reflected the vision and purpose of their proposed ventures.
                 </m.p>
@@ -202,7 +202,7 @@ const StartupXcel = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the final <strong>pitching round</strong>, where teams presented their startup ideas before the audience and coordinators. Participants explained the problem they aimed to solve, the solutions they proposed, their target audience, and the overall business strategy behind their concepts. The presentations tested communication, confidence, and persuasion skills while providing students with valuable experience in presenting ideas in a professional setting. Teams demonstrated excellent preparation and showcased their ability to articulate innovative concepts effectively.
                 </m.p>
@@ -212,7 +212,7 @@ const StartupXcel = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The competition created an energetic and collaborative atmosphere where students exchanged ideas, learned from one another, and developed a deeper appreciation for entrepreneurship and innovation. The multi-round structure encouraged participants to combine creativity, teamwork, critical thinking, and presentation skills throughout the event. Students remained actively engaged and displayed enthusiasm during every stage of the competition.
                 </m.p>
@@ -222,7 +222,7 @@ const StartupXcel = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>Startup Xcel</strong> was a highly interactive and successful event that promoted innovation, entrepreneurial thinking, branding, and problem-solving through engaging activities. The competition provided students with valuable exposure to startup development while enhancing their creativity, teamwork, confidence, and business communication skills.
                 </m.p>

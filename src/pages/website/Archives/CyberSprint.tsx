@@ -172,7 +172,7 @@ const CyberSprint = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -183,7 +183,7 @@ const CyberSprint = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introductory round focused on <strong>cybersecurity awareness and fundamental security concepts</strong>. Participants answered questions related to cyber threats, phishing attacks, ethical hacking, online privacy, and secure digital practices. The round encouraged students to assess their existing knowledge while learning about common cybersecurity risks and preventive measures. Teams actively participated in the discussions and demonstrated enthusiasm in exploring topics that are increasingly important in today's digital world.
                 </m.p>
@@ -193,7 +193,7 @@ const CyberSprint = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the initial round, participants advanced to a series of <strong>challenge-based activities</strong> designed to test their observation, analytical thinking, and problem-solving abilities. Students were required to identify suspicious online activities, analyze cybersecurity-related scenarios, and solve puzzles based on real-world digital security situations. The tasks encouraged participants to think critically, evaluate potential threats, and apply logical reasoning to arrive at effective solutions. The interactive nature of the activities created an engaging environment where students could learn while competing with their peers.
                 </m.p>
@@ -203,7 +203,7 @@ const CyberSprint = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the <strong>scenario-based challenge round</strong>, where teams worked together to address practical cybersecurity situations and demonstrate their understanding of cyber ethics and responsible digital behavior. Participants analyzed different cases, discussed possible security concerns, and proposed appropriate solutions based on secure online practices. The round promoted teamwork, communication, and collaborative problem-solving while helping students understand the importance of ethical decision-making in cybersecurity environments.
                 </m.p>
@@ -213,7 +213,7 @@ const CyberSprint = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Throughout the competition, students actively engaged in every stage of the event and displayed strong technical awareness, critical thinking, and confidence. The team-based format encouraged participants to exchange ideas, support one another, and develop a deeper understanding of cybersecurity concepts through practical application. The event successfully combined learning and competition, making the experience both educational and enjoyable for all involved.
                 </m.p>
@@ -223,7 +223,7 @@ const CyberSprint = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>Cyber Sprint</strong> was a highly interactive and successful technical competition that enhanced participants' cybersecurity awareness, analytical thinking, teamwork, and problem-solving abilities. The event provided valuable exposure to digital security concepts while encouraging responsible online behavior and fostering interest in cybersecurity through engaging, challenge-based learning experiences for future professionals.
                 </m.p>

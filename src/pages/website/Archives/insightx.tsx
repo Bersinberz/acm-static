@@ -46,7 +46,7 @@ const Insightx = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -62,7 +62,7 @@ const Insightx = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -202,7 +202,7 @@ const Insightx = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -213,7 +213,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event featured several engaging technical and non-technical activities that encouraged students to showcase their creativity, teamwork, and problem-solving skills. One of the major attractions was <strong>"Data Pix,"</strong> where participants combined data science with storytelling by analyzing datasets using Python and presenting their ideas creatively through Canva and PowerPoint presentations. Students actively participated and explored innovative approaches to solving real-world problems.
                 </m.p>
@@ -223,7 +223,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following this was <strong>"Debug Dominion,"</strong> a coding-based competition that tested logical thinking and collaboration among teams. Participants worked together in assigned roles such as Problem Solver, Code Checker, and Planner to identify bugs and review code efficiently. The event created a competitive atmosphere that strengthened both technical knowledge and team coordination skills among students.
                 </m.p>
@@ -233,7 +233,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The symposium also included an insightful guest talk on <strong>"Trends Shaping the Future"</strong> delivered by <strong>Mr. Arun C.</strong> The session focused on the Big Data Revolution and highlighted the growing importance of data-driven technologies across industries. Students gained valuable insights into emerging trends, practical applications of big data, and the role of analytics in modern decision-making.
                 </m.p>
@@ -243,7 +243,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Several non-technical competitions added excitement and energy to the event. <strong>"Enchanting Quest"</strong> engaged students in an adventurous treasure hunt where teams solved clues and challenges to reach the final destination. <strong>"Guess It"</strong> entertained participants through interactive visual puzzles that tested their creativity and reasoning abilities. <strong>"Stack 'N' Conquer"</strong> further promoted communication and teamwork through unique cup-stacking challenges conducted under time pressure.
                 </m.p>
@@ -253,7 +253,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The <strong>Free Fire</strong> and <strong>BGMI</strong> tournaments also attracted enthusiastic participation from gaming enthusiasts. Teams competed strategically through multiple rounds, showcasing coordination, precision, and gaming skills in intense battle royale matches.
                 </m.p>
@@ -263,7 +263,7 @@ const Insightx = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, the event successfully created an engaging platform for students to learn, compete, interact, and collaborate, making InsightX'24 a memorable experience for everyone involved.
                 </m.p>

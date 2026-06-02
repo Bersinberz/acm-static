@@ -173,7 +173,7 @@ const TechUNO = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -184,7 +184,7 @@ const TechUNO = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introduction to the rules and structure of TechUNO, where participants were familiarized with the unique game-based format that combined technical challenges with the popular UNO card game. Students were divided into teams and guided on how <strong>different card colors represented various coding and problem-solving tasks</strong>. The innovative concept immediately captured the attention of participants and created an energetic atmosphere that encouraged active involvement throughout the event.
                 </m.p>
@@ -194,7 +194,7 @@ const TechUNO = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     During the first round, participants selected UNO card colors and solved technical problem statements associated with their chosen cards. The challenges covered topics such as <strong>Data Structures and Algorithms, programming logic, looping concepts</strong>, and debugging tasks. Students worked collaboratively within their teams to analyze problems, discuss solutions, and apply their technical knowledge effectively. The round encouraged logical thinking, teamwork, and quick problem-solving while allowing participants to strengthen their understanding of important programming concepts in an engaging manner.
                 </m.p>
@@ -204,7 +204,7 @@ const TechUNO = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the second round, which featured <strong>one-on-one UNO matches combined with rapid-fire technical questions</strong>. Participants were required to make quick decisions while simultaneously answering technical questions under time constraints. This round tested not only their technical awareness but also their ability to think critically and respond accurately under pressure. The competitive nature of the activity created excitement among participants and kept the audience actively engaged throughout the session.
                 </m.p>
@@ -214,7 +214,7 @@ const TechUNO = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event successfully blended learning with entertainment by transforming technical challenges into an interactive gaming experience. Students enthusiastically participated in both rounds and demonstrated strong analytical thinking, communication, and teamwork skills. The game-based approach helped participants apply technical concepts in a practical and enjoyable environment while encouraging healthy competition among teams.
                 </m.p>
@@ -224,7 +224,7 @@ const TechUNO = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>TechUNO</strong> was a highly engaging and successful technical event that combined coding, problem-solving, and strategic gameplay in a unique format. The event enhanced students' technical knowledge, logical reasoning, and decision-making abilities while providing a fun and memorable learning experience through active participation, teamwork, and competitive challenges that fostered collaborative growth.
                 </m.p>

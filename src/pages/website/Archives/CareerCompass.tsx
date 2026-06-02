@@ -42,7 +42,7 @@ const CareerCompass = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -58,7 +58,7 @@ const CareerCompass = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -196,7 +196,7 @@ const CareerCompass = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -207,7 +207,7 @@ const CareerCompass = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an interactive guidance session led by final-year students <strong>Mr. Nagul Udhayan</strong>, <strong>Ms. Vijaya Harika Chilakapati</strong>, and <strong>Mr. Jonnalagadda Sri Harsha</strong>, who shared their personal placement experiences and internship journeys with the participants. Students actively listened as the speakers explained the challenges they faced, the strategies they followed, and the lessons they learned while preparing for placements and career opportunities. Their real-world experiences created a relatable and motivating atmosphere that encouraged participants to think seriously about their future career goals.
                 </m.p>
@@ -217,7 +217,7 @@ const CareerCompass = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introductory discussion, the speakers guided students on important aspects of placement preparation and career planning. Participants learned about the significance of skill development, technical knowledge, communication abilities, and consistency in achieving career success. The session also highlighted the importance of internships, project experiences, and continuous learning in building strong professional profiles. Students gained valuable insights into how they could effectively prepare themselves for placement drives and future opportunities in the technology industry.
                 </m.p>
@@ -227,7 +227,7 @@ const CareerCompass = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the interactive question-and-answer session where students actively clarified doubts regarding placements, internships, resume building, interview preparation, and career decision-making. The speakers provided practical suggestions and shared useful preparation techniques based on their own experiences. The open and interactive format encouraged students to participate confidently and engage in meaningful discussions throughout the session. Participants showed great interest in understanding real placement processes and the expectations of recruiters in professional environments.
                 </m.p>
@@ -237,7 +237,7 @@ const CareerCompass = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The guidance session also motivated students to develop confidence, improve problem-solving abilities, and focus on long-term career growth. The discussion emphasized the importance of balancing technical skills with communication and teamwork abilities for overall professional development. Students appreciated the practical advice and relatable experiences shared by the speakers during the session.
                 </m.p>
@@ -247,7 +247,7 @@ const CareerCompass = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Career Compass was a highly informative and motivating event that successfully guided students toward placement readiness, career awareness, and professional growth through interactive discussions, practical insights, and real-world experiences shared by senior students effectively.
                 </m.p>

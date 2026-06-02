@@ -171,7 +171,7 @@ const Techmemeathon = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -182,7 +182,7 @@ const Techmemeathon = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introduction to the competition format, where participants were familiarized with the rules, objectives, and different rounds of Tech-Meme-A-Thon. Students were grouped into <strong>teams of two</strong> and encouraged to combine technical knowledge with creativity to produce humorous and relatable content. The unique concept of blending technology with humor immediately generated excitement among participants and created an energetic atmosphere that encouraged active involvement throughout the event.
                 </m.p>
@@ -192,7 +192,7 @@ const Techmemeathon = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, participants took part in <strong>caption-creation activities</strong> that challenged them to develop witty and engaging captions based on programming concepts, coding experiences, and technology-related scenarios. Teams enthusiastically brainstormed ideas and used their understanding of technical subjects to create humorous content that resonated with fellow students. The activity encouraged creativity, quick thinking, and communication while allowing participants to express technical concepts in an entertaining manner.
                 </m.p>
@@ -202,7 +202,7 @@ const Techmemeathon = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the <strong>technical meme design round</strong>, where participants created original memes inspired by coding challenges, emerging technologies, software development experiences, and student life in the field of computing. Teams demonstrated impressive originality and creativity while transforming complex technical topics into simple and relatable visual content. The round encouraged innovation and provided students with an opportunity to showcase both their technical understanding and creative abilities through digital expression.
                 </m.p>
@@ -212,7 +212,7 @@ const Techmemeathon = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event also featured a <strong>gallery walk</strong> where teams presented and displayed their meme creations for evaluation and discussion. Participants explored the work of other teams, exchanged ideas, and appreciated different perspectives on technology-related humor. The interactive nature of this activity promoted collaboration, communication, and a stronger sense of community among participants. Students actively engaged with one another and enjoyed the opportunity to learn through creativity and shared experiences.
                 </m.p>
@@ -222,7 +222,7 @@ const Techmemeathon = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>Tech-Meme-A-Thon</strong> was a highly engaging and successful technical event that combined innovation, teamwork, humor, and technical knowledge through creative activities. The competition encouraged participants to think creatively, communicate effectively, and present relatable technology-based content while fostering a lively, enjoyable, and collaborative learning environment for all students involved throughout the program.
                 </m.p>

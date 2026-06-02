@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion as m } from 'framer-motion';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import usePageTitle from '../../components/usePageTitle';
 
-/* ── Particle canvas ─────────────────────────────────────────────────── */
+/* -- Particle canvas --------------------------------------------------- */
 const ParticleCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -86,9 +86,16 @@ const ParticleCanvas: React.FC = () => {
 
     draw();
 
+    const onVisibility = () => {
+      if (document.hidden) cancelAnimationFrame(animId);
+      else draw();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibility);
     };
   }, []);
 
@@ -104,7 +111,7 @@ const ParticleCanvas: React.FC = () => {
   );
 };
 
-/* ── Page ────────────────────────────────────────────────────────────── */
+/* -- Page -------------------------------------------------------------- */
 const JoinUs: React.FC = () => {
   usePageTitle('Join Us');
   return (
@@ -183,14 +190,14 @@ const JoinUs: React.FC = () => {
       }
     `}</style>
 
-    {/* ── particle field ── */}
+    {/* -- particle field -- */}
     <ParticleCanvas />
 
-    {/* ── ambient orbs (behind particles) ── */}
+    {/* -- ambient orbs (behind particles) -- */}
     <div style={{ position: 'fixed', top: '15%', left: '8%', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)', animation: 'orb 8s ease-in-out infinite', pointerEvents: 'none', zIndex: 0 }} />
     <div style={{ position: 'fixed', bottom: '12%', right: '8%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%)', animation: 'orb 10s ease-in-out infinite 2s', pointerEvents: 'none', zIndex: 0 }} />
 
-    {/* ── content ── */}
+    {/* -- content -- */}
     <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28 }}>
 
       <m.h1

@@ -52,7 +52,7 @@ const ScrollToTop = () => {
   return (
     <>
       <style>{`
-        .scroll-container {
+        button.scroll-container {
           position: fixed;
           bottom: 30px;
           right: 30px;
@@ -62,46 +62,40 @@ const ScrollToTop = () => {
           transform: translateY(20px);
           transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
           cursor: pointer;
+          width: 50px;
+          height: 50px;
+          background-color: rgba(15,23,42,0.8);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+          padding: 0;
         }
 
-        .scroll-container.visible {
+        button.scroll-container.visible {
           opacity: 1;
           visibility: visible;
           transform: translateY(0);
         }
 
-        /* The Button Circle */
-        .back-to-top-button {
-          width: 50px;
-          height: 50px;
-          background-color: #ffffff;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: none;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-          position: relative;
-          z-index: 2;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
         /* Hover Effects */
-        .scroll-container:hover .back-to-top-button {
+        button.scroll-container:hover {
           transform: translateY(-3px);
           box-shadow: 0 8px 25px rgba(92, 160, 242, 0.4);
         }
 
         /* Arrow Styling & Animation */
         .scroll-icon {
-          color: #5CA0F2; /* Matches your Navbar gradient end color */
+          color: var(--primary-blue);
           font-size: 20px;
           transition: color 0.3s ease;
           animation: bounce 2s infinite;
         }
         
-        .scroll-container:hover .scroll-icon {
-          color: #000000;
+        button.scroll-container:hover .scroll-icon {
+          color: #ffffff;
         }
 
         @keyframes bounce {
@@ -124,20 +118,20 @@ const ScrollToTop = () => {
 
         .progress-ring__circle {
           transition: stroke-dashoffset 0.1s linear;
-          stroke: #5CA0F2;
+          stroke: var(--primary-blue);
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-          .scroll-container {
+          button.scroll-container {
             bottom: 20px;
             right: 20px;
           }
         }
       `}</style>
 
-      <div 
-        className={`scroll-container ${isVisible ? 'visible' : ''}`} 
+      <button
+        className={`scroll-container ${isVisible ? 'visible' : ''}`}
         onClick={scrollToTop}
         aria-label="Back to top"
       >
@@ -156,7 +150,7 @@ const ScrollToTop = () => {
           {/* Animated Blue Progress circle */}
           <circle
             className="progress-ring__circle"
-            stroke="url(#gradient)" // Uses gradient definition below
+            stroke="url(#gradient)"
             strokeWidth="3"
             fill="transparent"
             r={radius}
@@ -170,17 +164,14 @@ const ScrollToTop = () => {
           {/* Gradient Definition for the ring */}
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#F5F7F6" />
-              <stop offset="100%" stopColor="#5CA0F2" />
+              <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
+              <stop offset="100%" stopColor="var(--primary-blue)" />
             </linearGradient>
           </defs>
         </svg>
 
-        {/* Center Button */}
-        <button className="back-to-top-button">
-          <FaArrowUp className="scroll-icon" />
-        </button>
-      </div>
+        <FaArrowUp className="scroll-icon" />
+      </button>
     </>
   );
 };

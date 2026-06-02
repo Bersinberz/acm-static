@@ -15,7 +15,6 @@ import {
   FaLinkedin,
   FaTimes,
 } from 'react-icons/fa';
-import { FloatingOrb } from '../../components/StatusMessage';
 import CopyrightFooter from '../../components/Footer';
 
 // Hardcoded data
@@ -41,14 +40,8 @@ const SOCIAL_LINKS = {
 
 const ORG_NAME = "SIST ACM SIGAI STUDENT CHAPTER";
 
-// Validation types (kept for future use)
-
-
 const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [statusVisible, setStatusVisible] = useState(false);
-  const [statusMessage] = useState("");
-  const [statusType] = useState<"success" | "error">("success");
 
   const toggleModal = () => {
     setIsModalOpen(prev => !prev);
@@ -70,31 +63,10 @@ const Home: React.FC = () => {
   return (
     <>
 
-
-      <FloatingOrb
-        isVisible={statusVisible}
-        message={statusMessage}
-        type={statusType}
-        onClose={() => setStatusVisible(false)}
-      />
-
       <style>{`
-        :root {
-            --primary-blue: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.6);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
         /* --- GLOBAL RESETS --- */
         * { box-sizing: border-box; }
         video::-webkit-media-controls { display: none !important; }
-
-        @keyframes gradientShift {
-          0% { background-position: 0 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0 50%; }
-        }
 
         /* --- LAYOUT CONTAINERS --- */
         .main {
@@ -434,7 +406,7 @@ const Home: React.FC = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           disablePictureInPicture
           style={{ pointerEvents: "none" }}
@@ -444,14 +416,14 @@ const Home: React.FC = () => {
       <div className='About'>
         <div className='Aboutt'>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='aboutsec'>
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='aboutsec'>
             <div className="tech-badge"><span className="tech-highlight">About </span>SIST ACM SIGAI</div>
             <p className='about-paragraph'>
               {ABOUT_TEXT}
             </p>
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='main-about'>
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='main-about'>
             <video
               src="https://res.cloudinary.com/dxpglrdwn/video/upload/v1771483516/SISTACMSIGAI_tt0jcc.mp4"
               autoPlay loop controls={false} muted playsInline
@@ -460,37 +432,37 @@ const Home: React.FC = () => {
             />
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.4)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='mission'>
+          <m.div variants={fadeIn("up", 0.4)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='mission'>
             <div className="tech-badge"><span className="tech-highlight">Our</span> Mission</div>
             <p className='mission-paragraph'>
               {MISSION_TEXT}
             </p>
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='image-container'>
-            <img src={ne} alt='LOGO REVEAL' loading="lazy" />
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='image-container'>
+            <img src={ne} alt='LOGO REVEAL' />
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='vision'>
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='vision'>
             <div className="tech-badge"><span className="tech-highlight">Our</span> Vision</div>
             <p className='mission-paragraph'>
               {VISION_TEXT}
             </p>
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" exit="exit" viewport={{ once: false, amount: 0.3 }} className='image-container'>
-            <img src={sat} alt='SIST ACM SIGAI' loading="lazy" />
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" exit="exit" viewport={{ once: true, amount: 0.3 }} className='image-container'>
+            <img src={sat} alt='SIST ACM SIGAI' />
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='ideology'>
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='ideology'>
             <div className="tech-badge"><span className="tech-highlight">Our</span> Ideology</div>
             <p className='mission-paragraph'>
               {IDEOLOGY_TEXT}
             </p>
           </m.div>
 
-          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className='image-container'>
-            <img src={grp} alt='OUR CORE UNIT' loading="lazy" />
+          <m.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className='image-container'>
+            <img src={grp} alt='OUR CORE UNIT' />
           </m.div>
         </div>
       </div>
@@ -543,13 +515,13 @@ const Home: React.FC = () => {
             </button>
 
             <div className="social-icons">
-              <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-icon twitter">
+              <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" className="social-icon twitter">
                 <FaTwitter />
               </a>
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon instagram">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="social-icon instagram">
                 <FaInstagram />
               </a>
-              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon linkedin">
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="social-icon linkedin">
                 <FaLinkedin />
               </a>
             </div>
@@ -559,7 +531,6 @@ const Home: React.FC = () => {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5412320274245!2d80.22350177642874!3d12.87288078743351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525b8c90befe2b%3A0x170ab8b5b21bb530!2sSathyabama%20Institute%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1710506289648!5m2!1sen!2sin"
               title="Sathyabama Location"
-              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             ></iframe>

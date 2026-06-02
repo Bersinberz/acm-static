@@ -3,147 +3,166 @@ import { motion as m } from "framer-motion";
 import usePageTitle from '../../components/usePageTitle';
 
 const Events: React.FC = () => {
-    usePageTitle('Events');
-    return (
-        <div className="events-page">
-            <style>{`
-                :root {
-                    --primary-blue: #3b82f6;
-                    --dark-bg: #0b1121;
-                    --glitch-red: #ff3333;
-                    --glitch-cyan: #00e5ff;
-                }
+  usePageTitle('Events');
 
-                .events-page {
-                    width: 100%;
-                    height: 100vh;
-                    background: var(--dark-bg);
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    font-family: 'Poppins', sans-serif;
-                    position: relative;
-                    overflow: hidden;
-                }
+  return (
+    <>
+      <style>{`
+        body:has(.ev-wrap) { overflow: hidden; }
 
-                .glitch-container {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    position: relative;
-                    perspective: 1000px;
-                }
+        .ev-wrap {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Poppins', sans-serif;
+          overflow: hidden;
+        }
 
-                .scanline-overlay {
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100%; height: 100%;
-                    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
-                    background-size: 100% 4px;
-                    pointer-events: none;
-                    z-index: 1;
-                    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-                }
+        /* deep bg */
+        .ev-wrap::before {
+          content: '';
+          position: absolute; inset: 0; z-index: 0;
+          background: radial-gradient(ellipse at 50% 50%, #0a0a1a 0%, #000 100%);
+        }
 
-                .glitch-404 {
-                    font-size: clamp(6rem, 15vw, 10rem);
-                    font-weight: 900;
-                    color: #fff;
-                    position: relative;
-                    letter-spacing: -5px;
-                    line-height: 0.8;
-                    text-shadow: 4px 4px 0px rgba(0,0,0,0.5);
-                }
+        /* orbs */
+        .ev-orb {
+          position: absolute; border-radius: 50%;
+          filter: blur(100px); pointer-events: none; z-index: 0;
+        }
+        .ev-orb-1 { width: 500px; height: 500px; background: #1d4ed8; top: -160px; left: -160px; opacity: 0.1; animation: o1 16s ease-in-out infinite alternate; }
+        .ev-orb-2 { width: 400px; height: 400px; background: #4f46e5; bottom: -130px; right: -130px; opacity: 0.1; animation: o2 20s ease-in-out infinite alternate; }
+        .ev-orb-3 { width: 260px; height: 260px; background: #0ea5e9; top: 50%; left: 55%; opacity: 0.07; animation: o3 14s ease-in-out infinite alternate; }
+        @keyframes o1 { to { transform: translate(50px, 40px) scale(1.1); } }
+        @keyframes o2 { to { transform: translate(-40px, -30px) scale(1.08); } }
+        @keyframes o3 { to { transform: translate(-30px, 20px) scale(1.15); } }
 
-                .glitch-404::before, .glitch-404::after {
-                    content: attr(data-text);
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100%; height: 100%;
-                    background: var(--dark-bg);
-                    opacity: 0.8;
-                }
+        /* scanlines */
+        .ev-scan {
+          position: absolute; inset: 0; z-index: 1; pointer-events: none;
+          background: repeating-linear-gradient(
+            0deg, transparent, transparent 2px,
+            rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px
+          );
+        }
 
-                .glitch-404::before {
-                    color: var(--glitch-red);
-                    z-index: -1;
-                    animation: glitch-split-1 2.5s infinite linear alternate-reverse;
-                }
+        /* vignette */
+        .ev-vig {
+          position: absolute; inset: 0; z-index: 1; pointer-events: none;
+          background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.8) 100%);
+        }
 
-                .glitch-404::after {
-                    color: var(--glitch-cyan);
-                    z-index: -2;
-                    animation: glitch-split-2 3s infinite linear alternate-reverse;
-                }
+        /* content */
+        .ev-content {
+          position: relative; z-index: 2;
+          display: flex; flex-direction: column;
+          align-items: center; text-align: center;
+          padding: 20px;
+          gap: 0;
+        }
 
-                @keyframes glitch-split-1 {
-                    0%   { clip-path: inset(20% 0 80% 0); transform: translate(-4px,  2px); }
-                    20%  { clip-path: inset(60% 0 10% 0); transform: translate( 4px, -2px); }
-                    40%  { clip-path: inset(40% 0 50% 0); transform: translate(-2px,  4px); }
-                    60%  { clip-path: inset(80% 0  5% 0); transform: translate( 2px, -4px); }
-                    80%  { clip-path: inset(10% 0 60% 0); transform: translate(-2px,  2px); }
-                    100% { clip-path: inset(30% 0 30% 0); transform: translate( 2px, -2px); }
-                }
+        /* top label */
+        .ev-label {
+          font-size: 0.68rem; letter-spacing: 5px; text-transform: uppercase;
+          color: rgba(255,255,255,0.2); margin-bottom: 28px;
+          font-family: 'Courier New', monospace;
+        }
 
-                @keyframes glitch-split-2 {
-                    0%   { clip-path: inset(10% 0 60% 0); transform: translate( 4px, -2px); }
-                    20%  { clip-path: inset(30% 0 20% 0); transform: translate(-4px,  2px); }
-                    40%  { clip-path: inset(70% 0 10% 0); transform: translate( 2px, -4px); }
-                    60%  { clip-path: inset(20% 0 50% 0); transform: translate(-2px,  4px); }
-                    80%  { clip-path: inset(50% 0 30% 0); transform: translate( 4px, -2px); }
-                    100% { clip-path: inset( 5% 0 80% 0); transform: translate(-4px,  2px); }
-                }
+        /* main heading */
+        .ev-heading {
+          font-size: clamp(2.2rem, 6vw, 4rem);
+          font-weight: 900; line-height: 1.1;
+          letter-spacing: -1px; margin: 0 0 6px;
+          background: linear-gradient(135deg, #fff 0%, #93c5fd 60%, #6366f1 100%);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
 
-                .error-msg {
-                    font-family: 'Courier New', monospace;
-                    text-transform: uppercase;
-                    color: var(--primary-blue);
-                    letter-spacing: 4px;
-                    font-weight: 700;
-                    font-size: 1.2rem;
-                    margin-top: 20px;
-                    background: rgba(59, 130, 246, 0.1);
-                    padding: 5px 15px;
-                    border: 1px solid rgba(59, 130, 246, 0.3);
-                }
+        /* thin rule */
+        .ev-rule {
+          width: 40px; height: 1px; margin: 22px auto;
+          background: linear-gradient(90deg, transparent, rgba(99,102,241,0.7), transparent);
+        }
 
-                .terminal-subtext {
-                    margin-top: 15px;
-                    font-family: 'Courier New', monospace;
-                    color: #94a3b8;
-                    font-size: 0.95rem;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    opacity: 0.8;
-                }
+        /* sub text */
+        .ev-sub {
+          font-size: 0.9rem; color: #475569;
+          letter-spacing: 0.3px; line-height: 1.7;
+          max-width: 340px; margin-bottom: 36px;
+          font-weight: 300;
+        }
 
-                .blink-cursor {
-                    display: inline-block;
-                    width: 8px; height: 16px;
-                    background: var(--glitch-cyan);
-                    animation: blink 1s step-end infinite;
-                }
+        /* pulsing pill */
+        .ev-pill {
+          display: inline-flex; align-items: center; gap: 10px;
+          padding: 10px 22px; border-radius: 50px;
+          background: rgba(59,130,246,0.07);
+          border: 1px solid rgba(59,130,246,0.2);
+          font-size: 0.78rem; color: #93c5fd;
+          letter-spacing: 1px; font-weight: 500;
+        }
+        .ev-pill-dot {
+          width: 7px; height: 7px; border-radius: 50%;
+          background: #3b82f6; box-shadow: 0 0 8px #3b82f6;
+          animation: pd 2s ease-in-out infinite;
+        }
+        @keyframes pd { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.3;transform:scale(0.6);} }
+      `}</style>
 
-                @keyframes blink {
-                    50% { opacity: 0; }
-                }
-            `}</style>
+      <div className="ev-wrap">
+        <div className="ev-orb ev-orb-1" />
+        <div className="ev-orb ev-orb-2" />
+        <div className="ev-orb ev-orb-3" />
+        <div className="ev-scan" />
+        <div className="ev-vig" />
 
-            <m.div className="glitch-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <div className="scanline-overlay"></div>
-                <m.div className="glitch-404" data-text="404">404</m.div>
-                <div className="error-msg">EVENT_DATA_NOT_FOUND</div>
-                <div className="terminal-subtext">
-                    <span>Stay Tuned for Events</span>
-                    <span className="blink-cursor"></span>
-                </div>
-            </m.div>
+        <div className="ev-content">
+
+          <m.p className="ev-label"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            SIST ACM SIGAI — Events
+          </m.p>
+
+          <m.h1 className="ev-heading"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 80 }}
+          >
+            No Events Found
+          </m.h1>
+
+          <m.div className="ev-rule"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+          />
+
+          <m.p className="ev-sub"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            We're working on something exciting.<br />
+            New events will be announced soon.
+          </m.p>
+
+          <m.div className="ev-pill"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.65 }}
+          >
+            <span className="ev-pill-dot" />
+            Stay tuned for upcoming events
+          </m.div>
+
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Events;

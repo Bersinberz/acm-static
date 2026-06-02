@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion as m } from "framer-motion";
 import Tilt from 'react-vanilla-tilt';
-import { useLocation } from 'react-router-dom';
 import { fadeIn } from '../../components/transitions';
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 import usePageTitle from '../../components/usePageTitle';
@@ -61,9 +60,14 @@ const UnitDropdown: React.FC<UnitDropdownProps> = ({ value, onChange, options })
       <div
         className={`custom-dropdown__trigger${open ? ' open' : ''}`}
         onClick={() => setOpen(o => !o)}
+        tabIndex={0}
         role="button"
         aria-haspopup="listbox"
         aria-expanded={open}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(o => !o); }
+          if (e.key === 'Escape') setOpen(false);
+        }}
       >
         <span>{options.find(o => o.value === value)?.label}</span>
         <span className={`custom-dropdown__chevron${open ? ' open' : ''}`}>
@@ -106,7 +110,7 @@ const MemberCard = ({ member, isLarge = false }: { member: FrontendMember; isLar
       variants={fadeIn("up", 0.15)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       style={{ willChange: "opacity, transform" }}
     >
       <Tilt
@@ -157,7 +161,6 @@ const MemberCard = ({ member, isLarge = false }: { member: FrontendMember; isLar
 const About: React.FC<AboutProps> = () => {
   usePageTitle('About Us');
   const [selectedUnit, setSelectedUnit] = useState<string>('volunteers');
-  const location = useLocation();
   const [selectedYear, setSelectedYear] = useState<string>('2025-2026');
   const [members, setMembers] = useState<Member[]>([]);
 
@@ -1752,14 +1755,14 @@ const About: React.FC<AboutProps> = () => {
 
   // --- YEAR SELECTION LOGIC ---
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(window.location.search);
     const batchParam = searchParams.get('batch');
     if (batchParam === '2024-2025') {
       setSelectedYear('2024-2025');
     } else {
       setSelectedYear('2025-2026');
     }
-  }, [location]);
+  }, []);
 
   // Reset selectedUnit to 'volunteers' if switching to 2025-2026 and research is selected
   useEffect(() => {
@@ -2157,7 +2160,7 @@ const About: React.FC<AboutProps> = () => {
           variants={fadeIn("up", 0)}
           initial="hidden"
           animate="show"
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           EXPLORE <span className="title-highlight">ACM SIGAI!!</span>
         </m.h1>
@@ -2198,7 +2201,7 @@ const About: React.FC<AboutProps> = () => {
           variants={fadeIn("up", 0)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <h4>MEET SIST SIGAI ({selectedYear})</h4>
         </m.div>
@@ -2212,7 +2215,7 @@ const About: React.FC<AboutProps> = () => {
           }}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="grid-container leadership-grid"
         >
           {getLeadershipData().map((member) => (

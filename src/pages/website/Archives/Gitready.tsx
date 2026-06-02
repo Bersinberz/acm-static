@@ -42,7 +42,7 @@ const Gitready = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -58,7 +58,7 @@ const Gitready = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -196,7 +196,7 @@ const Gitready = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -207,7 +207,7 @@ const Gitready = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introductory session conducted by <strong>Mr. Gorakati Teja</strong> and <strong>Mr. Jonnalagadda Sri Harsha</strong>, who introduced participants to the fundamentals of GitHub, version control systems, and collaborative software development practices. Students were familiarized with the importance of version control in professional programming environments and gained an understanding of how developers efficiently manage, track, and share code while working on projects as teams. The session created curiosity among participants and encouraged them to actively engage throughout the workshop.
                 </m.p>
@@ -217,7 +217,7 @@ const Gitready = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, the speakers demonstrated key GitHub concepts such as repositories, commits, branches, cloning, and pushing code changes. Participants learned how these features are used in real-world software development workflows to maintain project organization and collaboration. The hands-on explanations made the learning process simple and interactive, allowing students to understand technical concepts through practical implementation rather than theoretical discussion alone. Students enthusiastically followed the demonstrations and explored the platform features during the session.
                 </m.p>
@@ -227,7 +227,7 @@ const Gitready = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the workshop was the interactive practical activities conducted to help students gain real-time experience with GitHub workflows. Participants worked together to create repositories, make commits, manage branches, and collaborate on shared projects. The activities encouraged teamwork, communication, and problem-solving while giving students confidence in using GitHub for academic and professional projects. The collaborative environment helped participants understand how developers contribute to projects efficiently in real-world scenarios.
                 </m.p>
@@ -237,7 +237,7 @@ const Gitready = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The workshop also introduced students to open-source development practices and emphasized the importance of collaboration in modern software engineering. Participants gained valuable exposure to practical development workflows and learned how GitHub supports project management, contribution tracking, and code sharing among teams. Students actively interacted with the speakers, clarified doubts, and explored various GitHub tools and features throughout the session.
                 </m.p>
@@ -247,7 +247,7 @@ const Gitready = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, GIT READY was a successful and highly engaging workshop that provided students with practical knowledge, collaborative experience, and confidence in using GitHub and version control systems effectively for future software development opportunities.
                 </m.p>

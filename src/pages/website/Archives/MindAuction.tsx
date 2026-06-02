@@ -41,7 +41,7 @@ const MindAuction = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -57,7 +57,7 @@ const MindAuction = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -195,7 +195,7 @@ const MindAuction = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -206,7 +206,7 @@ const MindAuction = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introduction to the structure and objectives of Mind Auction, where participants were familiarized with the debate-based format and the rules of the activity. Students were informed about how topics would be assigned and how they would be required to present their viewpoints within a limited period of time. The session immediately created curiosity and excitement among participants, encouraging them to think critically and prepare themselves for active discussions throughout the event.
                 </m.p>
@@ -216,7 +216,7 @@ const MindAuction = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     As the event progressed, participants enthusiastically presented their opinions on a variety of assigned topics, expressing their ideas with confidence and clarity. Students actively engaged in debates, shared perspectives, defended their viewpoints, and responded thoughtfully to opposing opinions during discussions. The activity encouraged participants to analyze topics from different angles and develop logical arguments within limited time constraints. The competitive environment motivated students to think quickly, communicate effectively, and present their ideas in a structured and convincing manner.
                 </m.p>
@@ -226,7 +226,7 @@ const MindAuction = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the active participation and confidence displayed by students during the debate rounds. Participants demonstrated strong communication skills, creativity, analytical thinking, and decision-making abilities while presenting their viewpoints. The event also encouraged students to listen carefully to others' opinions, respect different perspectives, and engage in healthy intellectual discussions. The interactive nature of the activity made the session lively, engaging, and enjoyable for both participants and the audience.
                 </m.p>
@@ -236,7 +236,7 @@ const MindAuction = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The debate-based format helped students improve their public speaking skills and boosted their confidence in expressing ideas before an audience. Participants learned the importance of clarity, reasoning, and time management while presenting arguments effectively. The event successfully created an environment that promoted collaboration, discussion, and knowledge sharing among students through meaningful conversations and critical analysis.
                 </m.p>
@@ -246,7 +246,7 @@ const MindAuction = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Mind Auction was a highly engaging and successful non-technical event that effectively enhanced students' communication, critical thinking, decision-making, and public speaking abilities through interactive debates, active participation, and intellectually stimulating discussions conducted in a competitive and enjoyable atmosphere.
                 </m.p>

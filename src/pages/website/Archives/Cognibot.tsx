@@ -179,7 +179,7 @@ const Cognibot = () => {
 
         @keyframes scroll {
             0%   { transform: translateX(0); }
-            100% { transform: translateX(calc(-630px * 12)); }
+            100% { transform: translateX(calc(-630px * 18)); }
         }
 
         @media (max-width: 900px) {
@@ -187,7 +187,7 @@ const Cognibot = () => {
             .marquee-container { height: 280px; }
             @keyframes scroll {
                 0%   { transform: translateX(0); }
-                100% { transform: translateX(calc(-380px * 12)); }
+                100% { transform: translateX(calc(-380px * 18)); }
             }
             .text-gradient { font-size: 2.5rem; }
         }
@@ -226,7 +226,7 @@ const Cognibot = () => {
                 <div className="marquee-track">
                     {sliderImages.map((img, index) => (
                         <div className="marquee-item" key={index}>
-                            <img src={img} alt={`Cognibot ${index + 1}`} />
+                            <img src={img} alt={`Cognibot event photo ${index + 1}`} />
                         </div>
                     ))}
                 </div>
@@ -238,7 +238,7 @@ const Cognibot = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 OUR <span className="highlight-blue">SPEAKER</span>
             </m.h2>
@@ -248,7 +248,7 @@ const Cognibot = () => {
                 variants={fadeIn("up", 0.3)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 {/* Speaker 1 */}
                 <div className="guest-card">
@@ -271,7 +271,7 @@ const Cognibot = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -282,7 +282,7 @@ const Cognibot = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The session began with an insightful introduction by <strong>Mr. Ajay Kumar, CTO of Cognibot</strong>, who provided students with an overview of Machine Learning and its growing significance in modern industries. Participants were introduced to the role of Artificial Intelligence and Machine Learning in solving real-world business challenges and improving operational efficiency. The speaker explained how these technologies have evolved beyond academic concepts and are now widely adopted across various industrial sectors to drive innovation and intelligent decision-making.
                 </m.p>
@@ -292,7 +292,7 @@ const Cognibot = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, the session focused on the practical applications of Machine Learning in industrial environments. Students learned how organizations utilize Machine Learning models to <strong>automate repetitive tasks, optimize workflows, analyze large volumes of data</strong>, and improve productivity. Through industry-oriented examples and case studies, the speaker demonstrated how Machine Learning contributes to predictive analytics, process automation, quality control, and business intelligence. These practical insights helped participants understand the direct impact of AI-driven solutions on organizational performance and growth.
                 </m.p>
@@ -302,7 +302,7 @@ const Cognibot = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the session was the discussion on implementing and scaling Machine Learning solutions in real-world scenarios. The speaker explained the challenges organizations face while deploying AI systems, including <strong>data quality, model accuracy, scalability</strong>, and integration with existing processes. Students gained valuable exposure to industry practices and learned how professionals approach the development and deployment of Machine Learning applications in complex environments. The discussion provided participants with a realistic understanding of the opportunities and challenges associated with industrial AI adoption.
                 </m.p>
@@ -312,7 +312,7 @@ const Cognibot = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The interactive nature of the session encouraged students to actively engage with the speaker and seek clarification on industry-related concepts. Participants explored emerging trends in Artificial Intelligence, discussed future career opportunities in Machine Learning, and gained a deeper appreciation for the importance of continuous learning in rapidly evolving technological fields. The session effectively bridged the gap between academic knowledge and industry expectations.
                 </m.p>
@@ -322,7 +322,7 @@ const Cognibot = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>COGNIBOT</strong> was a highly informative and engaging technical session that provided students with practical insights into industrial Machine Learning applications, implementation strategies, and the transformative impact of Artificial Intelligence across various sectors worldwide today.
                 </m.p>

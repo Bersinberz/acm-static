@@ -41,7 +41,7 @@ const Technopoly = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -57,7 +57,7 @@ const Technopoly = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -195,7 +195,7 @@ const Technopoly = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -206,7 +206,7 @@ const Technopoly = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an introduction to the rules and structure of Technopoly, where participants were familiarized with the Monopoly-inspired gameplay format and the different technical challenges included throughout the event. Students were grouped into teams and guided on how they would progress across the game board by rolling dice and completing tasks placed within various blocks. The unique combination of technical activities and game-based learning immediately created excitement and enthusiasm among participants.
                 </m.p>
@@ -216,7 +216,7 @@ const Technopoly = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     As the event progressed, students actively participated in coding challenges, debugging activities, technical puzzles, and surprise rounds designed to test their logical thinking and problem-solving abilities. Each block presented a different challenge that required teamwork, analytical skills, and strategic decision-making to successfully move forward in the game. Participants collaborated effectively within their teams, discussed solutions, and approached each challenge with creativity and enthusiasm. The competitive nature of the event kept students engaged throughout the session and encouraged active involvement from all participants.
                 </m.p>
@@ -226,7 +226,7 @@ const Technopoly = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the interactive and unpredictable gameplay experience created through the surprise rounds and strategic game progression. Teams had to think quickly, adapt to unexpected situations, and make decisions carefully in order to gain advantages within the competition. The event not only strengthened technical knowledge but also improved communication, teamwork, and time-management skills among participants. Students enjoyed the balance between learning and entertainment, making the overall experience both educational and enjoyable.
                 </m.p>
@@ -236,7 +236,7 @@ const Technopoly = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event also created a collaborative atmosphere where participants exchanged ideas, solved technical problems together, and supported one another during challenges. The game-based format helped students approach technical concepts in a relaxed and engaging manner while encouraging healthy competition and active participation. Participants displayed great enthusiasm and involvement throughout the event, contributing to its energetic environment.
                 </m.p>
@@ -246,7 +246,7 @@ const Technopoly = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Technopoly was a highly successful and interactive technical event that effectively combined technology, teamwork, creativity, and strategic thinking through an innovative game-based learning experience, leaving participants with valuable knowledge and enjoyable memories of collaborative problem-solving activities.
                 </m.p>

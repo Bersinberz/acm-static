@@ -4,12 +4,6 @@ const CopyrightFooter: React.FC = () => {
   return (
     <>
       <style>{`
-        @keyframes gradientShift {
-          0% { background-position: 0 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0 50%; }
-        }
-
         .cpoy-cont {
           background: linear-gradient(45deg, #F5F7F6, #5CA0F2);
           background-size: 300% 300%;
@@ -20,12 +14,13 @@ const CopyrightFooter: React.FC = () => {
           margin-top: auto; 
         }
 
-        .Copyrights { color: #000; }
+        .Copyrights { color: #1e293b; }
         .Copyrights h2 { 
-            font-size: 20px; 
+            font-size: 1rem; 
             margin-bottom: 10px;
             font-weight: 600; 
-            text-transform: uppercase; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .Copyrights p {
           font-size: 0.85rem;

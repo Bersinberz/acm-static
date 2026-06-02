@@ -45,7 +45,7 @@ const IdeaToLaunch = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -61,7 +61,7 @@ const IdeaToLaunch = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Primary Blue */
+            color: var(--primary-blue); /* Primary Blue */
         }
 
         p.content-text {
@@ -265,7 +265,7 @@ const IdeaToLaunch = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 OUR <span className="highlight-blue">SPEAKER</span>
             </m.h2>
@@ -275,7 +275,7 @@ const IdeaToLaunch = () => {
                 variants={fadeIn("up", 0.3)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 {/* Speaker 1 */}
                 <div className="guest-card">
@@ -298,7 +298,7 @@ const IdeaToLaunch = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -309,7 +309,7 @@ const IdeaToLaunch = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an engaging seminar session led by <strong>Mr. Sai Varun C</strong>, Co-Founder of Alletrix Tech LLP, who shared his inspiring entrepreneurial journey and experiences in building a startup from scratch. Students actively listened as he explained the challenges, risks, and opportunities involved in establishing a successful startup venture. His personal experiences and practical insights motivated participants to think innovatively and consider entrepreneurship as a potential career path.
                 </m.p>
@@ -319,7 +319,7 @@ const IdeaToLaunch = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     During the session, students were introduced to important entrepreneurship concepts such as idea identification, market analysis, skill development, and business planning. The speaker explained how innovative ideas can be transformed into practical startup ventures through consistent effort, strategic planning, and adaptability. Participants gained a better understanding of the importance of identifying real-world problems and developing creative solutions that could create meaningful impact in society.
                 </m.p>
@@ -329,7 +329,7 @@ const IdeaToLaunch = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the interactive discussion on investment opportunities and startup growth. Students learned about different funding methods, including investors, partnerships, and startup support initiatives available for young entrepreneurs. The session also focused on the importance of communication skills, leadership qualities, teamwork, and decision-making in successfully managing a startup environment. Participants enthusiastically engaged in the discussions and clarified their doubts regarding entrepreneurship and business development.
                 </m.p>
@@ -339,7 +339,7 @@ const IdeaToLaunch = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The seminar created an inspiring atmosphere where students were encouraged to think creatively, explore innovative ideas, and understand the practical aspects of launching a startup. Participants showed great interest throughout the session and actively interacted with the speaker during discussions and question-answer segments. The event successfully provided students with valuable exposure to entrepreneurship and startup culture while motivating them to develop confidence in pursuing their own innovative ideas.
                 </m.p>
@@ -349,7 +349,7 @@ const IdeaToLaunch = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, Idea to Launch was a highly informative and motivational seminar that encouraged students to explore entrepreneurship, innovation, and leadership through real-world insights and interactive learning experiences effectively.
                 </m.p>

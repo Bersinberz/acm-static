@@ -172,7 +172,7 @@ const ResumeBuilding = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -183,7 +183,7 @@ const ResumeBuilding = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The session began with an introduction to the importance of resume building and its role in creating a strong first impression on recruiters. Participants were guided on how a well-structured resume can significantly influence internship, placement, and higher education opportunities. The speakers explained the purpose of a resume and highlighted its importance as a professional document that effectively showcases a candidate's qualifications, skills, and achievements. Students actively engaged in the discussion and gained a clear understanding of the value of presenting information professionally.
                 </m.p>
@@ -193,7 +193,7 @@ const ResumeBuilding = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the introduction, participants were introduced to <strong>Overleaf</strong> and guided through the process of creating professional resumes using structured templates. <strong>Ms. Lakshana S</strong> conducted a hands-on demonstration that familiarized students with the platform and simplified the resume-building process. Students actively followed the step-by-step instructions and learned how to organize their information effectively while maintaining a clean and professional format. The practical approach enabled participants to gain confidence in creating resumes independently.
                 </m.p>
@@ -203,7 +203,7 @@ const ResumeBuilding = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the session was the discussion on recruiter expectations and resume evaluation criteria. Participants learned about the key differences between a <strong>CV and a resume</strong> and gained valuable insights into the elements that organizations commonly look for in candidates. The speakers emphasized the importance of showcasing relevant skills, projects, certifications, academic achievements, and extracurricular activities in a concise and impactful manner. Students also learned about <strong>Applicant Tracking Systems (ATS)</strong> and the significance of optimizing resumes to improve visibility during recruitment processes.
                 </m.p>
@@ -213,7 +213,7 @@ const ResumeBuilding = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The workshop further encouraged students to critically assess their own profiles and identify areas for improvement. Through hands-on practice, participants applied the concepts learned during the session and developed professional resumes tailored to future opportunities. The interactive format allowed students to clarify doubts and receive practical guidance throughout the workshop.
                 </m.p>
@@ -223,7 +223,7 @@ const ResumeBuilding = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>Resume Building</strong> was a highly informative and engaging session that enhanced students' understanding of professional resume creation, improved their confidence in presenting qualifications effectively, and prepared them for future academic, internship, and placement opportunities with greater readiness and success.
                 </m.p>

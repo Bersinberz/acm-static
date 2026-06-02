@@ -35,7 +35,7 @@ const Digiart = () => {
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, #0099ff) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue, var(--primary-blue)) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 900;
             letter-spacing: -2px;
@@ -51,7 +51,7 @@ const Digiart = () => {
         }
 
         .highlight-blue {
-            color: #0099ff; /* Azure Blue */
+            color: var(--primary-blue); /* Azure Blue */
         }
 
         p.content-text {
@@ -203,7 +203,7 @@ const Digiart = () => {
         variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         WINNER'S <span className="highlight-blue">ARTWORK</span>
       </m.h2>
@@ -213,7 +213,7 @@ const Digiart = () => {
         variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false }}
+        viewport={{ once: true }}
       >
         <img
           src={spiderman}
@@ -229,7 +229,7 @@ const Digiart = () => {
         variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         EVENT <span className="highlight-blue">WINNER</span>
       </m.h2>
@@ -239,7 +239,7 @@ const Digiart = () => {
         variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <div className="guest-card">
           <img src={winner} alt="Mr. Godwin Deepak T" />
@@ -261,7 +261,7 @@ const Digiart = () => {
         variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         KEY <span className="highlight-blue">HIGHLIGHTS</span>
       </m.h2>
@@ -272,7 +272,7 @@ const Digiart = () => {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           The SIST ACM SIGAI Student Chapter recently conducted an artistic "Digital Art Competition" for the students of the CSE department on August 1, 2024. It was a remarkable event where participants enthusiastically showcased their talent in digital technology through their excellent artistic skills. The theme of this exciting competition was freestyle comics, and the artist who captured the hearts of the audience with his work was <strong>Godwin Deepak T</strong>.
         </m.p>
@@ -283,7 +283,7 @@ const Digiart = () => {
           variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <img
             src={grpimg}

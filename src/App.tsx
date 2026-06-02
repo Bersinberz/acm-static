@@ -65,14 +65,16 @@ function App() {
       return;
     }
 
-    // Don't show the route loader for self-loading pages or unknown routes
+    // Don't show the route loader for self-loading pages, archive sub-pages
+    // (Suspense handles those), or unknown routes (404 handles its own animation)
     const isKnownRoute = [
       '/', '/about', '/membership', '/archives', '/blogs',
       '/our-roots', '/join-us', '/events'
-    ].includes(location.pathname) || location.pathname.startsWith('/archives/');
+    ].includes(location.pathname);
 
     if (SELF_LOADING_ROUTES.includes(location.pathname)) return;
-    if (!isKnownRoute) return; // 404 page handles its own entrance animation
+    if (location.pathname.startsWith('/archives/')) return; // Suspense handles this
+    if (!isKnownRoute) return;
 
     setLoading(true);
 

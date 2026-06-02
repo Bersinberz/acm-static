@@ -180,7 +180,7 @@ const SpaceZ = () => {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 KEY <span className="highlight-blue">HIGHLIGHTS</span>
             </m.h2>
@@ -191,7 +191,7 @@ const SpaceZ = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     The event began with an exciting <strong>quiz round</strong> that tested participants' knowledge of space science, astronomy, planets, space missions, and scientific advancements. Students enthusiastically answered questions covering a wide range of topics related to the universe and space exploration. The round encouraged participants to recall their knowledge, think critically, and apply their understanding of scientific concepts in a competitive environment. The engaging nature of the quiz created excitement among teams and set an energetic tone for the rest of the event.
                 </m.p>
@@ -201,7 +201,7 @@ const SpaceZ = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Following the quiz, participants advanced to the <strong>model-building round</strong>, which focused on creativity, innovation, and teamwork. Teams were provided with a problem statement and challenged to design and construct paper-based models that addressed the given scenario. Participants collaborated closely, exchanged ideas, and applied creative thinking to develop effective solutions within the allotted time. The activity encouraged students to combine imagination with practical problem-solving while strengthening communication and teamwork skills. The round witnessed enthusiastic participation and showcased the innovative abilities of the competing teams.
                 </m.p>
@@ -211,7 +211,7 @@ const SpaceZ = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     One of the major highlights of the event was the final <strong>image identification round</strong>, where participants were required to recognize and respond to space-related visuals within a limited time. The round tested observation skills, quick thinking, and the ability to recall information accurately under pressure. Teams actively competed to identify images related to planets, spacecraft, astronomical phenomena, and other space-related subjects. The fast-paced nature of the activity kept participants engaged and added excitement to the competition.
                 </m.p>
@@ -221,7 +221,7 @@ const SpaceZ = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Throughout the event, students displayed remarkable enthusiasm, teamwork, and curiosity toward space and scientific exploration. The combination of knowledge-based, creative, and rapid-response activities ensured that participants remained actively involved in every stage of the competition. The event successfully promoted learning through interaction and encouraged students to explore scientific concepts in an enjoyable manner.
                 </m.p>
@@ -231,7 +231,7 @@ const SpaceZ = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     Overall, <strong>SpaceZ</strong> was a highly engaging and successful competition that combined knowledge, creativity, teamwork, and quick thinking through a variety of space-themed challenges, providing participants with an enjoyable, educational, and memorable learning experience while fostering curiosity about science and innovation.
                 </m.p>
